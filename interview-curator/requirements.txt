@@ -1,0 +1,4 @@
+# Install all, or trim to just the provider you use.
+anthropic>=1.2,<2    # provider: anthropic (1.x needs Python >=3.10; CI runs 3.12)
+openai>=1.50         # provider: openai AND perplexity (OpenAI-compatible API)
+google-genai>=1.0    # provider: gemini
