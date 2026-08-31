@@ -1,4 +1,3 @@
-# DesignOdyssey
 # 📐 System Design (HLD & LLD)
 
 ![License](https://img.shields.io/badge/license-MIT-blue)  
