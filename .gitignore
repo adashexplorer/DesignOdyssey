@@ -1,0 +1,14 @@
+# IntelliJ / Android Studio
+.idea/
+*.iws
+out/
+
+# Python (interview-curator)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
