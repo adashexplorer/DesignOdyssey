@@ -2,8 +2,6 @@
 
 Interview-ready preparation from **junior (SDE-1 / L3)** through **staff/principal (L6–L8)**. Classic product and infrastructure design plus the AI layer that 2026 loops actually probe.
 
-**Companion:** [`Q&A.md`](./Q&A.md) — frequently asked questions, follow-up probes, and living reference links.
-
 This document is a **living tracker**, not a book substitute. Use it to sequence work, pick problems at your level, and score mocks. Depth lives in the books, papers, and blogs linked below.
 
 ---
@@ -17,7 +15,7 @@ This document is a **living tracker**, not a book substitute. Use it to sequence
   - 🟨 **Vendor / cloud** — AWS/GCP/Azure or product-specific
   - 🟧 **Emerging** — know it exists; over-invest only if the role needs it
 - **Never spend more than two weeks on pure theory before a timed mock.** Pattern recognition under time pressure is the skill being graded.
-- Pair this README with [`Q&A.md`](./Q&A.md) after you have drawn a design once, not before. Memorizing answers without a framework fails the first follow-up.
+- **Draw a design before you read anyone's answer.** Memorizing answers without a framework fails the first follow-up.
 - Some links are **stable domains** (engineering blogs reorganize URLs). Search the site for the post title if a deep link 404s.
 
 ### What interviewers grade in 2026 (all levels)
@@ -639,4 +637,4 @@ For each: class diagram, sequence for the hottest path, compiling code, tests th
 
 ---
 
-*Use this with [`Q&A.md`](./Q&A.md). Ask for a mock on a named problem, a weak-spot drill, or a design review against the rubric.*
+*Ask for a mock on a named problem, a weak-spot drill, or a design review against the rubric.*
