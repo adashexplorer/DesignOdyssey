@@ -4,23 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-DesignOdyssey is a **content repository**, not a software project: a self-study curriculum for HLD/LLD/AI system-design interviews, spanning junior (SDE-1) through staff/principal. Everything of substance lives in one long Markdown file at the root, `README.md`. There is no build, no test suite, no package manager, and no application code — work here is editing prose, tables, and links.
+DesignOdyssey is a **content repository**, not a software project: a self-study curriculum for HLD/LLD/AI system-design interviews, spanning junior (SDE-1) through staff/principal and on to an architect overlay. It is written as a **continuously updated reference**, so prose never describes the document's own past — no “previously”, no “new in this revision”, no changelog of what a section used to say. State what is true now; Section 15 carries the protocol for keeping it that way, and git carries the history. Everything of substance lives in one long Markdown file at the root, `README.md`. There is no build, no test suite, no package manager, and no application code — work here is editing prose, tables, and links.
 
-`hld/` and `lld/` are placeholder IntelliJ Java modules: each has an `.iml` declaring a `src/` source root and an empty `src/` directory on disk (untracked, since git does not store empty directories). `hld/README.md` holds a short FR-vs-NFR note; `lld/README.md` is empty. If Java example code is ever added, these modules are where it belongs.
+`hld/` and `lld/` are placeholder IntelliJ Java modules: each has an `.iml` declaring a `src/` source root and an empty `src/` directory on disk (untracked, since git does not store empty directories). `hld/README.md` holds a short FR-vs-NFR note; `lld/README.md` is a stub that points back to Phase LLD and Section 7 of the root README rather than duplicating them. If Java example code is ever added, these modules are where it belongs.
 
 `mocks/` holds one dated scorecard per mock interview, written by the `mock-interviewer` agent and committed so it can compare runs over time. `mocks/README.md` documents the filename convention and the YAML frontmatter schema — the frontmatter is what makes scores and recurring weaknesses machine-readable, so preserve it exactly when editing a scorecard by hand.
+
+`docs/` holds dated one-off analysis reports. It is **human-read prose, not agent input**: nothing loads it, and it is distinct from `.claude/docs/`, which exists because agent prompts name those files by path. A file here is a snapshot of its own date and is never edited to stay current — the current state of every claim lives in `README.md` Section 12. Do not cite `docs/` from `README.md`: the curriculum reads as a document that is always current, never as one that narrates its own history.
 
 `.idea/` is untracked; the root `.gitignore` covers it along with Python artifacts from `interview-curator/` and macOS cruft.
 
 ## Document architecture
 
-**`README.md`** is the roadmap and the whole of the curriculum. Numbered top-level sections 0–13: how to use the doc, four tracks with week-by-week calendars (Section 2), a map of which chapters of Alex Xu Vol. 1/Vol. 2 and DDIA to read or skip (Section 3), the **phase-by-phase syllabus** (Section 4), master problem lists (Sections 6–7), a mock scoring rubric (Section 10), a progress tracker to copy out (Section 11), a dated "verified current-state" appendix (Section 12), and the canonical link index (Section 13).
+**`README.md`** is the roadmap and the whole of the curriculum. Numbered top-level sections 0–15: how to use the doc and what is really in the repo (Section 0), a five-stage ladder with entry gates plus five week-by-week calendars and the arithmetic behind every timeline (Section 2), a map of which chapters of Alex Xu Vol. 1/Vol. 2 and DDIA to read or skip (Section 3), the **phase-by-phase syllabus** (Section 4), master problem lists (Sections 6–7), a mock scoring rubric (Section 10), a progress tracker to copy out (Section 11), a dated "verified current-state" appendix (Section 12), the canonical link index (Section 13), the repo's own agent/mock/curator tooling (Section 14), and the maintenance protocol — what to re-check, when, and the rules that do not bend (Section 15).
 
-Two independent numbering schemes coexist and inline references sometimes conflate them: `README.md` has **Sections** 0–13 *and* **Phases** (0, 1, 1b, 2–9, AI, LLD, 11) inside Section 4. Before "fixing" a reference like `(Section 8)`, work out whether the author meant the section or the like-numbered phase — several existing refs point at the wrong one.
+Eleven **Mermaid** diagrams are embedded (track structure, stage gates, phase dependencies, the scale ladder, RAG, LLM serving, cells, expand/contract, a feed sketch, an LLD class sketch). They are validated by rendering, not by eye — see the note under **Verification**. Add one only where prose cannot carry the point, and keep each small.
+
+Two independent numbering schemes coexist and inline references sometimes conflate them: `README.md` has **Sections** 0–15 *and* **Phases** (0, 1, 1b, 2, 2b, 3, 3b, 4, 5, 6, 6b, 7, 8, AI, 9, 10, LLD, 11) inside Section 4. Before "fixing" a reference like `(Section 8)`, work out whether the author meant the section or the like-numbered phase — the Interview OS and the mock intensive are **Phases** 0 and 11, and the like-numbered Sections are different material. Every current reference has been checked, so treat a mismatch you find as a real bug rather than a documented quirk.
+
+New material is added under **sub-numbers** (2.0, 2.5, 2.6, 6.1), **lettered phases** (2b, 3b, 6b) or a new trailing section, never by renumbering — inline references depend on the existing numbers.
 
 ## Conventions to preserve when editing
 
-**Concept tables in Section 4 phases** use the column shape `| Concept | Type | Time | Why interviews | Resource |`, where *Type* is one of the four legend tags defined in Section 0 and *Time* is an hour estimate:
+**Concept tables in Section 4 phases** come in two shapes, both in use: the full `| Concept | Type | Time | Why interviews | Resource |` (Phases 1, 2b, 3b, 6b, 10) and a compact `| Concept | Type | Time | Resource |` (Phases 1b, 2, 3, 4, 5, 6, 7, 8). Prefer the full shape for new tables; do **not** "fix" a compact one by inventing a *Why interviews* column. *Type* is one of the four legend tags defined in Section 0 and *Time* is an hour estimate — keep the estimate, because Section 2.6 sums that column to derive the stage budgets, and a row without it silently shrinks the total:
 
 - 🟦 Fundamental — durable (CAP, consensus, indexing, isolation, SOLID)
 - 🟩 Current practice — industry consensus that can shift
@@ -55,7 +61,20 @@ There is nothing to compile or run. Useful checks after an edit:
 ```bash
 grep -n "^#\{1,3\} " README.md      # section/heading outline
 grep -o "](http[^)]*)" README.md    # links, if spot-checking for rot
+grep -c '```mermaid' README.md      # diagram count (11 as of 26 Sep 2026)
 ```
+
+**Validate Mermaid by rendering it, never by eye.** GitHub silently shows a broken diagram as an
+error box, and the failure modes (an unquoted label, a reserved word as a node id) look fine in a
+diff. Extract each block and render it with a **mermaid 11.x** CLI, which is the GitHub-compatible
+line:
+
+```bash
+npx -y @mermaid-js/mermaid-cli@11 -i diagram.mmd -o /tmp/out.svg
+```
+
+A non-empty SVG means it parses. Keep diagrams small and split rather than growing one — a tangled
+graph is a worse failure than no graph.
 
 The `convention-check` skill will run the full set (tag legend, table shapes, cross-references, tracker sync, dated claims) and `link-audit` will sweep for link rot — neither is written yet.
 
