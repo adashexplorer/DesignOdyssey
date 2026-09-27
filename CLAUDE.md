@@ -10,7 +10,7 @@ DesignOdyssey is a **content repository**, not a software project: a self-study 
 
 `mocks/` holds one dated scorecard per mock interview, written by the `mock-interviewer` agent and committed so it can compare runs over time. `mocks/README.md` documents the filename convention and the YAML frontmatter schema — the frontmatter is what makes scores and recurring weaknesses machine-readable, so preserve it exactly when editing a scorecard by hand.
 
-`docs/` holds dated one-off analysis reports. It is **human-read prose, not agent input**: nothing loads it, and it is distinct from `.claude/docs/`, which exists because agent prompts name those files by path. A file here is a snapshot of its own date and is never edited to stay current — the current state of every claim lives in `README.md` Section 12. Do not cite `docs/` from `README.md`: the curriculum reads as a document that is always current, never as one that narrates its own history.
+There is **no `docs/` directory, and analysis output does not become a committed report.** This repository is a live reference, not an archive: the current state of every claim lives in `README.md` Section 12, and git carries the history. Anything that would read as a snapshot of its own date — a gap analysis, an audit, a review, a changelog — belongs in the conversation and the commit message, not in a tracked file. When such an analysis finds something, fold the *finding* into `README.md` and let the report itself go. (`.claude/docs/` is unrelated and does exist — see **Agents and skills** below.)
 
 `.idea/` is untracked; the root `.gitignore` covers it along with Python artifacts from `interview-curator/` and macOS cruft.
 
@@ -32,6 +32,8 @@ New material is added under **sub-numbers** (2.0, 2.5, 2.6, 6.1), **lettered pha
 - 🟩 Current practice — industry consensus that can shift
 - 🟨 Vendor / cloud — AWS/GCP/Azure or product-specific
 - 🟧 Emerging — know it exists; do not over-invest
+
+Write the tag as a **literal emoji character**, never an escape sequence: a row that reads `\U0001f7e6` instead of 🟦 renders as raw text, drops out of the legend and is skipped by any script that sums the *Time* column by tag. Some rows carry a compound tag (`🟨/🟧`, `🟧→🟩`); count those too when totalling hours.
 
 **Voice:** imperative and opinionated — "do this week", "weak:", "junior: skip implementation". Answers state trade-offs and name what fails an interview. Do not soften this into neutral encyclopedia prose, and do not pad sections with generic advice; the README explicitly positions itself as a sequencing tool, not a book substitute.
 

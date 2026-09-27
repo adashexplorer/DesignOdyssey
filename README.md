@@ -320,11 +320,11 @@ instead of running out of weeks by accident. The standard cuts, in order:
 2. **One of the two Phase 9 specializations** (−6 h)
 3. **The Phase 1 papers** at anything below senior (−6 h)
 4. **Phase AI advanced** unless the role touches inference infrastructure (−16 h)
-5. **Vendor-tagged rows** (\U0001f7e8) anywhere the company does not use that cloud (−5 h)
+5. **Vendor-tagged rows** (🟨) anywhere the company does not use that cloud (−5 h)
 
 That is ~40 h recovered, which is what turns a 210 h menu into a 170 h plan — still above the 115 h
 budget, which is why Stage 3 genuinely needs 24 weeks rather than 20 and why the fundamentals
-(\U0001f7e6) are the rows you never cut.
+(🟦) are the rows you never cut.
 
 **Why each stage is bound by something different** — this is the part bare week counts hide:
 
@@ -570,13 +570,13 @@ and which hop your tail latency is hiding in.
 
 | Concept | Type | Time | Why interviews | Resource |
 |---|---|---|---|---|
-| DNS, TTLs, anycast, GSLB | \U0001f7e6 | 1 h | Failover that is actually DNS-bound; “how long until traffic moves?” | [Cloudflare Learning — DNS](https://www.cloudflare.com/learning/dns/what-is-dns/) |
-| TCP handshake, congestion control, head-of-line blocking | \U0001f7e6 | 2 h | Why a far-away region costs RTTs, not just “latency” | [High Performance Browser Networking](https://hpbn.co/) Ch. 2–4 |
-| TLS handshake, session resumption, mTLS cost | \U0001f7e6 | 1 h | Per-connection cost; why you pool | HPBN Ch. 4; Phase 8 |
-| HTTP/1.1 vs HTTP/2 vs **HTTP/3 (QUIC)** | \U0001f7e9 | 1.5 h | Multiplexing, 0-RTT, mobile networks | [RFC 9114](https://www.rfc-editor.org/rfc/rfc9114.html); [Cloudflare on HTTP/3](https://blog.cloudflare.com/http3-the-past-present-and-future/) |
-| Connection pooling, keep-alive, file descriptors | \U0001f7e6 | 1 h | The bottleneck behind “just add servers” | HPBN; your driver's pool docs |
-| Timeout **budgets** across hops | \U0001f7e6 | 1 h | A retry storm is a timeout-budget bug | [gRPC deadlines](https://grpc.io/docs/guides/deadlines/); Phase 5 |
-| Long-lived transports: WebSocket, SSE, long poll | \U0001f7e6 | 1.5 h | Chat, presence, **LLM token streaming** | Xu Vol. 1 Ch. 12; Phase AI |
+| DNS, TTLs, anycast, GSLB | 🟦 | 1 h | Failover that is actually DNS-bound; “how long until traffic moves?” | [Cloudflare Learning — DNS](https://www.cloudflare.com/learning/dns/what-is-dns/) |
+| TCP handshake, congestion control, head-of-line blocking | 🟦 | 2 h | Why a far-away region costs RTTs, not just “latency” | [High Performance Browser Networking](https://hpbn.co/) Ch. 2–4 |
+| TLS handshake, session resumption, mTLS cost | 🟦 | 1 h | Per-connection cost; why you pool | HPBN Ch. 4; Phase 8 |
+| HTTP/1.1 vs HTTP/2 vs **HTTP/3 (QUIC)** | 🟩 | 1.5 h | Multiplexing, 0-RTT, mobile networks | [RFC 9114](https://www.rfc-editor.org/rfc/rfc9114.html); [Cloudflare on HTTP/3](https://blog.cloudflare.com/http3-the-past-present-and-future/) |
+| Connection pooling, keep-alive, file descriptors | 🟦 | 1 h | The bottleneck behind “just add servers” | HPBN; your driver's pool docs |
+| Timeout **budgets** across hops | 🟦 | 1 h | A retry storm is a timeout-budget bug | [gRPC deadlines](https://grpc.io/docs/guides/deadlines/); Phase 5 |
+| Long-lived transports: WebSocket, SSE, long poll | 🟦 | 1.5 h | Chat, presence, **LLM token streaming** | Xu Vol. 1 Ch. 12; Phase AI |
 
 **Drill:** take one design you have already done and annotate every arrow with a protocol, a
 timeout, and who retries. Most designs fall apart at “who retries?”
@@ -617,12 +617,12 @@ unless the role is data-adjacent (see 2.6).
 
 | Concept | Type | Time | Why interviews | Resource |
 |---|---|---|---|---|
-| Row vs column layout; why OLAP is a different engine | \U0001f7e6 | 1.5 h | “Can we just query the replica?” — usually no | DDIA Ch. 3 (column storage) |
-| Warehouse vs lake vs **lakehouse**; who owns the schema | \U0001f7e9 | 1.5 h | Where the second copy of your data lives | [Databricks on the open lakehouse](https://www.databricks.com/blog/next-era-open-lakehouse-apache-icebergtm-v3-public-preview-databricks) |
-| Open table formats: **Apache Iceberg**, snapshots, time travel | \U0001f7e9 | 1.5 h | The 2026 default answer for the analytical copy | [Iceberg spec](https://iceberg.apache.org/spec/) — read the table/snapshot model, skip the rest |
-| Stream → table: Flink, Kafka Streams, materialized views | \U0001f7e6 | 1.5 h | Ad-click aggregation, leaderboards, metrics rollups | Xu Vol. 2 ad-click chapter; Flink docs concepts |
-| Real-time OLAP serving: ClickHouse / Druid / Pinot shape | \U0001f7e9 | 1 h | “Dashboard must be fresh within a minute” | ClickHouse docs — MergeTree concepts |
-| Idempotent aggregation, late data, watermarks | \U0001f7e6 | 1 h | The honest answer to “exactly once” counting | DDIA Ch. 11 |
+| Row vs column layout; why OLAP is a different engine | 🟦 | 1.5 h | “Can we just query the replica?” — usually no | DDIA Ch. 3 (column storage) |
+| Warehouse vs lake vs **lakehouse**; who owns the schema | 🟩 | 1.5 h | Where the second copy of your data lives | [Databricks on the open lakehouse](https://www.databricks.com/blog/next-era-open-lakehouse-apache-icebergtm-v3-public-preview-databricks) |
+| Open table formats: **Apache Iceberg**, snapshots, time travel | 🟩 | 1.5 h | The 2026 default answer for the analytical copy | [Iceberg spec](https://iceberg.apache.org/spec/) — read the table/snapshot model, skip the rest |
+| Stream → table: Flink, Kafka Streams, materialized views | 🟦 | 1.5 h | Ad-click aggregation, leaderboards, metrics rollups | Xu Vol. 2 ad-click chapter; Flink docs concepts |
+| Real-time OLAP serving: ClickHouse / Druid / Pinot shape | 🟩 | 1 h | “Dashboard must be fresh within a minute” | ClickHouse docs — MergeTree concepts |
+| Idempotent aggregation, late data, watermarks | 🟦 | 1 h | The honest answer to “exactly once” counting | DDIA Ch. 11 |
 
 **2026 note:** Iceberg **v3** (deletion vectors, row lineage, a `VARIANT` type) went GA across
 Snowflake, Databricks and S3 Tables during 2026, and open engines now treat Iceberg as the default
@@ -695,11 +695,11 @@ single bad deploy can take out — and what you would change to shrink it.
 
 | Concept | Type | Time | Why interviews | Resource |
 |---|---|---|---|---|
-| **Cell-based architecture**: full stacks, thin router | \U0001f7e6 | 2 h | The standard answer to “shrink blast radius” | [AWS — reducing scope of impact with cells](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.html) |
-| Multi-tenancy: pooled vs siloed vs bridge | \U0001f7e6 | 1.5 h | SaaS designs; “how do you stop one tenant hurting the rest?” | Phase 5 shuffle sharding; AWS SaaS lens |
-| Quotas and fair queueing per tenant | \U0001f7e6 | 1 h | The noisy-neighbour follow-up; token quotas in Phase AI | Phase 4 rate limiting |
-| Deploy waves, cell-at-a-time rollout, bake time | \U0001f7e9 | 1 h | A bad deploy is the most common outage cause | Phase 7 canary |
-| Control plane vs data plane; static stability | \U0001f7e6 | 1.5 h | “Does the data plane keep serving if the control plane is down?” — the answer should be yes | [Static stability using availability zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/) |
+| **Cell-based architecture**: full stacks, thin router | 🟦 | 2 h | The standard answer to “shrink blast radius” | [AWS — reducing scope of impact with cells](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.html) |
+| Multi-tenancy: pooled vs siloed vs bridge | 🟦 | 1.5 h | SaaS designs; “how do you stop one tenant hurting the rest?” | Phase 5 shuffle sharding; AWS SaaS lens |
+| Quotas and fair queueing per tenant | 🟦 | 1 h | The noisy-neighbour follow-up; token quotas in Phase AI | Phase 4 rate limiting |
+| Deploy waves, cell-at-a-time rollout, bake time | 🟩 | 1 h | A bad deploy is the most common outage cause | Phase 7 canary |
+| Control plane vs data plane; static stability | 🟦 | 1.5 h | “Does the data plane keep serving if the control plane is down?” — the answer should be yes | [Static stability using availability zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/) |
 
 ```mermaid
 flowchart TD
@@ -924,15 +924,15 @@ service from it, and delete the old path — each step independently reversible.
 
 | Concept | Type | Time | Why interviews | Resource |
 |---|---|---|---|---|
-| **Expand / contract** (parallel change) | \U0001f7e6 | 2 h | The universal answer to “how do you ship that schema change?” | [Fowler — ParallelChange](https://martinfowler.com/bliki/ParallelChange.html) |
-| Backfills: batched, throttled, resumable, idempotent | \U0001f7e6 | 1.5 h | “You have 4 billion rows” — rate, restartability, and what breaks if it runs twice | Phase 1b estimation, applied |
-| Dual-write, shadow reads, reconciliation | \U0001f7e6 | 1.5 h | How you *verify* before cutover instead of hoping | Phase 2 outbox and CDC |
-| Online schema change tooling | \U0001f7e9 | 1 h | Locking DDL is the classic production mistake | [gh-ost](https://github.com/github/gh-ost) — read *why* it uses the binlog |
-| Strangler fig: extracting a service from a monolith | \U0001f7e9 | 1 h | Half of all real “design X” work | [Fowler — StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html) |
-| Deprecation and the last 10% | \U0001f7e9 | 1 h | Staff signal: naming the date you *delete* the old thing | Phase 4 API versioning |
-| Deletion across derived data (right to erasure) | \U0001f7e6 | 1 h | Brutal follow-up: your event log and your lakehouse are immutable by design | Phase 3b, Phase 8 |
-| Testing distributed systems: property tests, fault injection, **deterministic simulation** | \U0001f7e6 | 2.5 h | “How do you know it works?” — and how you reproduce the bug | [DST explained](https://antithesis.com/docs/resources/deterministic_simulation_testing/); [FoundationDB testing](https://apple.github.io/foundationdb/testing.html); [WarpStream's DST write-up](https://www.warpstream.com/blog/deterministic-simulation-testing-for-our-entire-saas); [Jepsen analyses](https://jepsen.io/analyses) |
-| ADRs and design docs as the deliverable | \U0001f7e9 | 1 h | The Stage 5 artifact (2.5) | [adr.github.io](https://adr.github.io/) |
+| **Expand / contract** (parallel change) | 🟦 | 2 h | The universal answer to “how do you ship that schema change?” | [Fowler — ParallelChange](https://martinfowler.com/bliki/ParallelChange.html) |
+| Backfills: batched, throttled, resumable, idempotent | 🟦 | 1.5 h | “You have 4 billion rows” — rate, restartability, and what breaks if it runs twice | Phase 1b estimation, applied |
+| Dual-write, shadow reads, reconciliation | 🟦 | 1.5 h | How you *verify* before cutover instead of hoping | Phase 2 outbox and CDC |
+| Online schema change tooling | 🟩 | 1 h | Locking DDL is the classic production mistake | [gh-ost](https://github.com/github/gh-ost) — read *why* it uses the binlog |
+| Strangler fig: extracting a service from a monolith | 🟩 | 1 h | Half of all real “design X” work | [Fowler — StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html) |
+| Deprecation and the last 10% | 🟩 | 1 h | Staff signal: naming the date you *delete* the old thing | Phase 4 API versioning |
+| Deletion across derived data (right to erasure) | 🟦 | 1 h | Brutal follow-up: your event log and your lakehouse are immutable by design | Phase 3b, Phase 8 |
+| Testing distributed systems: property tests, fault injection, **deterministic simulation** | 🟦 | 2.5 h | “How do you know it works?” — and how you reproduce the bug | [DST explained](https://antithesis.com/docs/resources/deterministic_simulation_testing/); [FoundationDB testing](https://apple.github.io/foundationdb/testing.html); [WarpStream's DST write-up](https://www.warpstream.com/blog/deterministic-simulation-testing-for-our-entire-saas); [Jepsen analyses](https://jepsen.io/analyses) |
+| ADRs and design docs as the deliverable | 🟩 | 1 h | The Stage 5 artifact (2.5) | [adr.github.io](https://adr.github.io/) |
 
 ```mermaid
 flowchart TD
@@ -981,7 +981,8 @@ Drawing load balancers in LLD (or class diagrams in HLD) is a common miss.
 - **Tier-1 patterns:** Strategy, State, Observer, Factory. **Tier-2:** Decorator, Command, Builder, Chain of Responsibility (logger), Template Method, Composite (file tree), Specification (Unix `find`). Singleton only if you can say why DI is usually better.
 - UML: class + sequence for the critical path — correct arrows on the **hinge** classes beat complete getters
 - Concurrency: thread pools, locks vs CAS, `ConcurrentHashMap` (not Java 7 segments). **Virtual threads ([JEP 444](https://openjdk.org/jeps/444), final in 21):** cheap blocking I/O, not faster CPU; a tiny JDBC pool still bottlenecks. **Scoped values** finalized in JDK 25 ([JEP 506](https://openjdk.org/jeps/506)) — prefer over `ThreadLocal` with millions of VTs. **Structured concurrency is still preview** — sixth preview in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)), not final as of Sep 2026. Do not claim it as a production default on any LTS without `--enable-preview`; see Section 12.
-- Machine coding: compiling code > pretty UML; YAGNI on Redis locks for a single-process round- **Boundaries, not just classes:** ports and adapters — domain logic that does not import your HTTP framework or your ORM. The test is whether the core compiles without them ([hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/))
+- Machine coding: compiling code > pretty UML; YAGNI on Redis locks for a single-process round
+- **Boundaries, not just classes:** ports and adapters — domain logic that does not import your HTTP framework or your ORM. The test is whether the core compiles without them ([hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/))
 - **Domain modelling, lightly:** entity vs value object, aggregate and invariant, the bounded context you are inside. You are not doing full DDD in 45 minutes; you *are* expected to know that `Money` is not a `double` and that an invariant belongs in one place ([Fowler on DDD](https://martinfowler.com/bliki/DomainDrivenDesign.html), [BoundedContext](https://martinfowler.com/bliki/BoundedContext.html))
 - **Error modelling is design:** expected-failure return types vs exceptions, which errors are retryable, and error codes a caller can branch on. “Throw a `RuntimeException`” ends a promising round
 - **The API between packages is the real LLD at senior+:** what is public, what is sealed, what a caller can depend on. Idempotency keys, pagination and versioning (Phase 4) are LLD questions when they land in a method signature
@@ -1238,7 +1239,7 @@ times over.
 - **Java:** virtual threads final in 21 ([JEP 444](https://openjdk.org/jeps/444)); scoped values final in 25 ([JEP 506](https://openjdk.org/jeps/506)); **structured concurrency is still preview** — sixth preview in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)), not final as of Sep 2026. Claiming it as a production default is a dated-sounding error in the other direction.
 - **MCP:** donated by Anthropic to the **Agentic AI Foundation** under the Linux Foundation in **December 2025**; the **2026-07-28** specification removes the initialize handshake and session IDs, making the protocol stateless per call ([spec](https://modelcontextprotocol.io/specification/2026-07-28)). Interview framing: an MCP server is an untrusted dependency behind authz and quotas.
 - **Ingress vs Gateway API:** the Kubernetes **Ingress API is feature-frozen but not deprecated**; the community **ingress-nginx** controller reached end-of-life in **March 2026**, which is what people actually mean when they say “Ingress is dead”. New traffic-management work is in Gateway API (Envoy Gateway, Istio ambient, Cilium, Kong). Keep those two facts apart.
-- **OpenTelemetry:** CNCF **graduated** 11 May 2026; public announcement 21 May 2026. Default interview vocabulary is OTLP, not a vendor SDK.
+- **OpenTelemetry:** CNCF **graduated**, announced 21 May 2026 ([CNCF announcement](https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/)) — cite that date, because it is the one with a primary source. A 11 May 2026 TOC vote date circulates widely; it is not stated in CNCF's own announcement and is unverified here, so do not lean on it. Default interview vocabulary is OTLP, not a vendor SDK.
 - **Service mesh — do not mix surveys:**
   - CNCF **Annual Survey 2024**: mesh in production for a few/most apps **~50% (2023) → ~42% (2024)** among *organizations* ([Linux Foundation / CNCF annual survey PDF](https://www.linuxfoundation.org/hubfs/Research%20Reports/cncf_annual_survey24_031225a.pdf)).
   - CNCF **State of Cloud Native Development Q3 2025**: *developer* service-mesh use **18% (Q3 2023) → 8% (Q3 2025)** ([report PDF](https://www.cncf.io/wp-content/uploads/2025/11/cncf_report_stateofcloud_111025a.pdf)), with cost/complexity and meshes folding into platform layers as explanations.
@@ -1296,7 +1297,7 @@ a weakness slug that recurs across `mocks/` so you can see the third time you sk
 **Known gaps, stated rather than implied — the build list, in priority order:**
 
 1. **An AI panel seat.** `mock-interviewer` already carries an AI rubric (pipeline, retrieval-or-serving depth, evals, token and GPU cost, safety) that no panel seat owns, so a full loop cannot grade the dimension Phase AI spends ~50 hours on. `.claude/README.md` has the five steps for adding a seat
-2. **`.claude/skills/` is empty.** `link-audit` and `convention-check` are planned. Until they exist, run the checks in `CLAUDE.md` by hand — a link sweep catches real rot, and engineering blogs reorganise URLs constantly
+2. **`.claude/skills/` is empty.** `add-question`, `link-audit` and `convention-check` are planned. Until they exist, run the checks in `CLAUDE.md` by hand — a link sweep catches real rot, and engineering blogs reorganise URLs constantly
 3. **`mocks/` holds no scorecards**, so every “Mock avg” cell in Section 11 is empty by fact rather than by oversight. The trend only starts existing after the third run
 
 ---
