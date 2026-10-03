@@ -16,11 +16,11 @@ There is **no `docs/` directory, and analysis output does not become a committed
 
 ## Document architecture
 
-**`README.md`** is the roadmap and the whole of the curriculum. Numbered top-level sections 0–15: how to use the doc and what is really in the repo (Section 0), a five-stage ladder with entry gates plus five week-by-week calendars and the arithmetic behind every timeline (Section 2), a map of which chapters of Alex Xu Vol. 1/Vol. 2 and DDIA to read or skip (Section 3), the **phase-by-phase syllabus** (Section 4), master problem lists (Sections 6–7), a mock scoring rubric (Section 10), a progress tracker to copy out (Section 11), a dated "verified current-state" appendix (Section 12), the canonical link index (Section 13), the repo's own agent/mock/curator tooling (Section 14), and the maintenance protocol — what to re-check, when, and the rules that do not bend (Section 15).
+**`README.md`** is the roadmap and the whole of the curriculum. An unnumbered **Start here** block sits above Section 0: the four-step entry point, the whole stage journey in one table, and a map of which section to open when. Numbered top-level sections 0–15 follow: how to use the doc and what is really in the repo (Section 0), a five-stage ladder with entry gates, five week-by-week calendars, the arithmetic behind every timeline, the weekly rhythm alongside a job (2.7) and how the stages chain from junior to architect (2.8) (Section 2), a map of which chapters of Alex Xu Vol. 1/Vol. 2 and DDIA to read or skip (Section 3), the **phase-by-phase syllabus** (Section 4), master problem lists (Sections 6–7), a mock scoring rubric (Section 10), a progress tracker to copy out (Section 11), a dated "verified current-state" appendix (Section 12), the canonical link index (Section 13), the repo's own agent/mock/curator tooling (Section 14), and the maintenance protocol — what to re-check, when, and the rules that do not bend (Section 15).
 
 Eleven **Mermaid** diagrams are embedded (track structure, stage gates, phase dependencies, the scale ladder, RAG, LLM serving, cells, expand/contract, a feed sketch, an LLD class sketch). They are validated by rendering, not by eye — see the note under **Verification**. Add one only where prose cannot carry the point, and keep each small.
 
-Two independent numbering schemes coexist and inline references sometimes conflate them: `README.md` has **Sections** 0–15 *and* **Phases** (0, 1, 1b, 2, 2b, 3, 3b, 4, 5, 6, 6b, 7, 8, AI, 9, 10, LLD, 11) inside Section 4. Before "fixing" a reference like `(Section 8)`, work out whether the author meant the section or the like-numbered phase — the Interview OS and the mock intensive are **Phases** 0 and 11, and the like-numbered Sections are different material. Every current reference has been checked, so treat a mismatch you find as a real bug rather than a documented quirk.
+Two independent numbering schemes coexist and inline references sometimes conflate them: `README.md` has **Sections** 0–15 *and* **Phases** (0, 1, 1b, 2, 2b, 3, 3b, 4, 5, 6, 6b, 7, 8, AI, 9, 10, LLD, R, 11) inside Section 4. Before "fixing" a reference like `(Section 8)`, work out whether the author meant the section or the like-numbered phase — the Interview OS and the mock intensive are **Phases** 0 and 11, and the like-numbered Sections are different material. Every current reference has been checked, so treat a mismatch you find as a real bug rather than a documented quirk.
 
 New material is added under **sub-numbers** (2.0, 2.5, 2.6, 6.1), **lettered phases** (2b, 3b, 6b) or a new trailing section, never by renumbering — inline references depend on the existing numbers.
 
@@ -63,7 +63,7 @@ There is nothing to compile or run. Useful checks after an edit:
 ```bash
 grep -n "^#\{1,3\} " README.md      # section/heading outline
 grep -o "](http[^)]*)" README.md    # links, if spot-checking for rot
-grep -c '```mermaid' README.md      # diagram count (11 as of 26 Sep 2026)
+grep -c '```mermaid' README.md      # diagram count (11 as of 3 Oct 2026)
 ```
 
 **Validate Mermaid by rendering it, never by eye.** GitHub silently shows a broken diagram as an

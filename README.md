@@ -6,6 +6,59 @@ This document is a **living tracker**, not a book substitute. Use it to sequence
 
 ---
 
+## Start here
+
+Nobody should read this document top to bottom. It is a menu with a placement test in front of it.
+Do these four things, in this order, and you will always know what to do next.
+
+**Step 1 — Place yourself (15 minutes).** Answer the five gate questions in **Section 2.0**. The
+first *no* is your stage. Your title does not decide it; your answers do.
+
+**Step 2 — Open your stage card and your calendar.** Each stage card in 2.0 gives the learning
+order, what “done” looks like and the hours. Each calendar (2.1–2.5) turns that into weeks.
+Section 2.7 shows what one week looks like alongside a full-time job.
+
+**Step 3 — Every week, run the same rhythm** (2.7): concept work from the phase your calendar
+names (Section 4), one design or LLD build, one hour of engineering-blog reading (**Phase R**),
+and — from the week your stage says — one timed mock scored against Section 10.
+
+**Step 4 — Track and gate.** Log weak spots and real hours in the Section 11 tracker. When you can
+pass your stage's gate question, move to the next stage card. If you cannot, the tracker tells you
+which phase to revisit.
+
+**The whole journey on one page**
+
+| Stage | You are | Calendar | Pace | Core phases, in order | Gate to leave |
+|---|---|---|---|---|---|
+| **1 Beginner** | SDE-1 / new grad / first design round | 2.1 | 14–16 wk @ 8–10 h | 0 → LLD → 1b → 2 (SQL vs NoSQL) → AI basic | A 45-min LLD without freezing |
+| **2 Intermediate** | SDE-2 / mid-level | 2.2 | 16–20 wk @ 8–10 h | 1 → 1b → 2 → 2b → 3 → 4 → AI intermediate | An HLD your own numbers drove |
+| **3 Senior** | Senior / L5 | 2.3 | 20–24 wk @ 8–10 h | 5 → 6 → 6b → 7 → 8 → 10 → two of 9 → AI serving sketch | A 60-min deep dive, cost unprompted |
+| **4 Staff / Principal** | Staff / L6–L7 | 2.4 | 24–26 wk @ 8–10 h, or 12 wk @ 18–20 h | Papers → AI advanced → 6b and 10 in depth → Xu Vol. 2 cruxes | Scope, org and blast radius, in writing |
+| **5 Architect** | Principal+ / enterprise architect | 2.5 | +8–12 wk @ 6–8 h | ADRs → build-vs-buy → migration plan → org boundaries | A design doc that survives a hostile panel |
+
+Phase LLD and Phase R run **every week at every stage**; they are not phases you finish.
+
+**Where everything is**
+
+| Section | Open it when |
+|---|---|
+| 0 How to use, what is graded | Once, before week 1 |
+| 1 What this covers | You suspect your prep has a hole |
+| **2 Stages, gates, calendars, weekly rhythm** | **Week 1, and every time you finish a stage** |
+| 3 Which book chapters to read or skip | Your calendar names a book |
+| **4 Phase-by-phase syllabus** | **Every week — this is the work** |
+| 5 Timeboxed interview formats | Before every mock |
+| 6–7 HLD and LLD problem lists | Picking this week's design or build |
+| 8–9 Failure patterns, level signals | Reviewing a mock that went badly |
+| 10 Scoring rubric | Scoring every mock |
+| 11 Progress tracker | End of every week |
+| 12 Verified current state | Before you name a version, a licence or a statistic in a room |
+| 13 Resource index | Looking for depth on a topic |
+| 14 Repo tooling (mock agents, daily reading list) | Running a mock without a human |
+| 15 Keeping this document current | Editing this document |
+
+---
+
 ## 0. How to use this document
 
 - Copy the **Progress Tracker** (Section 11) into your notes and update it weekly.
@@ -57,6 +110,13 @@ Across Hello Interview, DesignGurus, interviewing.io write-ups, and company blog
 
 **What moved since ~2021:** cost reasoning and operational maturity (observability, rollback, on-call) are graded explicitly at senior+. **AI-adjacent literacy** (where a model/retrieval/GPU sits, latency/cost/failure) is expected in general SWE loops when the product has an ML surface — not only in ML-specialist roles. Over-proposing multi-region active-active or event sourcing without a requirement is a **negative** judgment signal.
 
+**How the loop itself is shifting (dated and sourced in Section 12):**
+
+- **AI is entering the coding rounds, not the design rounds.** Meta began rolling out an *AI-enabled coding* round in October 2025 that replaces one of the two onsite coding rounds; the design round is unchanged. What it grades — reading code you did not write, verifying output, explaining it — is the same skill a design round grades when you defend a box you did not invent
+- **More in-person rounds.** Google said it will reintroduce at least one in-person round, citing AI-assisted cheating in virtual interviews. Practise drawing and talking without a tool to lean on
+- **The question catalog has moved toward product-shaped prompts with a real contention or freshness problem** — flash sales, online auctions, price tracking, top-K, local delivery, a ChatGPT-style app. Section 6 carries them as their own block
+- **What could not be verified:** prep-industry blogs claim that design rounds now reach mid-level loops more often and that about half of 2026 design loops contain an AI component. Both are plausible and both are repeated everywhere, but neither has a primary source or a methodology behind it. Treat them as direction, not data
+
 ---
 
 ## 1. What this document commits to covering
@@ -75,6 +135,7 @@ These hold at every level, and nothing in Section 4 is allowed to crowd them out
 - Level calibration (Section 9) and the mock rubric (Section 10) as the way you check yourself
 - **Right-sizing the architecture** as a first-class skill, not a caveat
 - Fundamentals (🟦) stay first-class. Emerging material (🟧) is added at the edges and never displaces them
+- **Reading how real companies built and broke real systems, every week** (Phase R). Books give you the primitives; engineering blogs and postmortems give you the numbers, the constraints and the failure that interviewers use for their follow-ups
 
 ### Coverage map
 
@@ -92,6 +153,9 @@ Where each canonical source is actually used, so you can see at a glance whether
 | **Geo, bloom filters, Merkle trees, WAL, erasure coding** | Phases 1b, 2, 6 and 9 |
 | **Reliability and operations** | Phases 5, 6b and 7, sourced to the AWS Builders' Library and the Google SRE books (Section 13) |
 | **Moving statistics and version claims** | Section 12 only, dated and separately labelled — never inline, where they would rot invisibly |
+| **Engineering blogs, postmortems, newsletters** | Phase R: a weekly protocol, a reading list mapped to phases, and what to read at each stage; the daily curator in Section 14 feeds it |
+| **The current question rotation** | Section 6, including the product-shaped prompts (flash sale, auction, top-K, price tracking, ChatGPT-style app) now common in practice catalogs |
+| **Interview patterns** (contention, hot keys, large blobs, real-time fan-out, long-running work) | Phases 2, 2b and 3 — the recurring sub-problems that most product prompts reduce to |
 
 ### Honest limits of any roadmap
 
@@ -107,7 +171,9 @@ Pick **one** primary track. Do not mix “junior breadth” with “staff papers
 |---|---|---|---|---|---|
 | Typical titles | Google L3; Amazon SDE-1 ≈ L4 | Google L4; Amazon SDE-2 ≈ L5 | Google L5; Amazon Senior SDE ≈ L6 | Google L6+; Amazon Principal ≈ L7 | Amazon Senior Principal ≈ L8; “Architect” on enterprise ladders |
 | HLD in loop? | Often **no** or a light 30-min; **LLD / machine coding** is the design round at many companies (Amazon, Uber, Flipkart, Atlassian, many India product firms) | Usually **one** HLD | One or two HLD; depth + trade-offs | HLD is a **hiring bar** round; you drive scope, cost, org, AI/ops | Often **not a whiteboard**: a review of a system you shipped, a written design doc, cross-org scoping, stakeholder panel |
-| Duration @ 8–10 hrs/wk | **14–16 weeks** | **16–20 weeks** | **20–24 weeks** | **22–24 weeks** *or* **10–12 weeks intensive** (~18–20 hrs/wk) | **+8–12 weeks on top of staff** (~6–8 hrs/wk, mostly writing) |
+| Duration @ 8–10 hrs/wk | **14–16 weeks** | **16–20 weeks** | **20–24 weeks** | **24–26 weeks** *or* **10–12 weeks intensive** (~18–20 hrs/wk) | **+8–12 weeks on top of staff** (~6–8 hrs/wk, mostly writing) |
+| Calendar | 2.1 | 2.2 | 2.3 | 2.4 | 2.5 |
+| Weekly reading (Phase R) | 1 h: explainer newsletters + one company post | 1 h: company posts mapped to this week's phase | 1 h: postmortems and the Builders' Library | 1–1.5 h: papers, postmortems, your target company's blog in depth | 1 h: migration and decision write-ups |
 | Books | Xu Vol. 1 Ch. 1–3, 4, 6, 8; primer GitHub | Xu Vol. 1 full; DDIA Ch. 3, 5, 6 | Xu Vol. 1 + selected Vol. 2; DDIA Parts I–II | Both Xu volumes; DDIA full; 4–6 papers | Staff set plus *The Hard Parts* and *Team Topologies*; papers read for judgement, not recall |
 | Mocks start | Week 3 (LLD first) | Week 4 | Week 6–8 | Week 3 (intensive) or Week 8 (standard) | Week 1 — the artifact under review is a **document** |
 | AI depth | Basic: where LLM/RAG sits, caching, rate limits | Intermediate: hybrid retrieval, evals, cost/token | Intermediate + serving sketch | Advanced: GPU, batching, KV cache, evals, agents as *systems* | Advanced plus portfolio judgement: build vs buy, vendor and model risk, where AI must **not** go |
@@ -149,6 +215,8 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | **Interview signal** | Problem navigation and communication (Section 0). Graders are checking that you scope and that you do **not** over-build |
 | **Time** | **14–16 weeks @ 8–10 h/wk ≈ 120–150 h** |
 | **Why that long** | Only ~60 h of that is reading. The binding constraint is eight LLD builds and three timed HLDs at ~2.5 h each including the rewrite, plus six mocks. Fluency under a clock needs *spaced* repetition; the same 120 h crammed into four weeks does not produce it |
+| **Reading (Phase R)** | One explainer a week (ByteByteGo, a Hello Interview breakdown) plus one company post on a problem you have already drawn. Goal: notice that real systems start simple |
+| **Next step** | Pass Gate 1 → Stage 2. Not yet → repeat the two weakest LLD builds from Section 7 under a clock, then retest |
 
 #### Stage 2 — Intermediate (SDE-2 / L4)
 
@@ -160,6 +228,8 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | **Interview signal** | Solution design — coherent architecture, a real data model, APIs, scale you justified rather than asserted |
 | **Time** | **16–20 weeks @ 8–10 h/wk ≈ 140–190 h** |
 | **Why that long** | Concept load roughly doubles to ~95 h (Phases 1–4 plus DDIA 5–6). Six designs *at depth* is the first point where breadth stops being free, and replication and partitioning do not become intuitive in one pass — they need a second encounter inside a design |
+| **Reading (Phase R)** | One company post a week chosen to match the phase you are in — a sharding migration during Phase 2, a messaging platform during Phase 3. Write the five-line card |
+| **Next step** | Pass Gate 2 → Stage 3. Not yet → redo two Section 6 intermediate problems with estimation written *first* and check that a number changed a decision |
 
 #### Stage 3 — Senior (L5)
 
@@ -171,6 +241,8 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | **Interview signal** | Technical excellence and trade-offs **including cost**, plus operational maturity — the two things Section 0 flags as newly explicit since ~2021 |
 | **Time** | **20–24 weeks @ 8–10 h/wk ≈ 180–220 h** |
 | **Why that long** | ~120 h of concept time *after* discounting the spine to revision, ~50 h of design practice and 14 mocks. The weeks are set by the mock count and by two specializations at 5–8 h each — not by reading speed. This is the stage where the phase menu genuinely exceeds the calendar (see 2.6) |
+| **Reading (Phase R)** | Postmortems and the AWS Builders' Library. A postmortem is a deep dive somebody else already failed; read it for the trigger, the blast radius and the fix |
+| **Next step** | Pass Gate 3 → Stage 4. Not yet → take one design and run the Phase 6b drill and the Phase 10 drill on it; those two are where senior answers usually stop |
 
 #### Stage 4 — Staff / Principal (L6–L7)
 
@@ -180,8 +252,10 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | **Learning order** | Papers (Raft, Dynamo, Spanner, then GFS/TAO) → Phase AI *advanced* → Phases 6b and 10 at full depth → Xu Vol. 2 domain cruxes → adversarial mocks from week 3 |
 | **“Done” looks like** | You scope and cut without being asked; you can be wrong about a number and recover in the same breath; three adversarial mocks where the interviewer attacks the design and it either survives or you concede cleanly |
 | **Interview signal** | Drives the room; surfaces cost, ops and org first; calibrates to level (Section 9). The bar-raiser question is “above the bar for L6?”, not “good answer?” |
-| **Time** | **22–24 weeks @ 8–10 h/wk, or 10–12 weeks @ 18–20 h/wk ≈ 200–240 h** |
-| **Why that long** | The intensive is **not a discount** — it is the same hours at double the weekly rate. Compression only works because Stage 3 material is already retrieval rather than learning. If it is not, the 12-week plan collapses around week 5, which is exactly when it stops being recoverable |
+| **Time** | **24–26 weeks @ 8–10 h/wk, or 10–12 weeks @ 18–20 h/wk ≈ 250–265 h** |
+| **Why that long** | The intensive is **not a discount** — it is the same hours at double the weekly rate. Compression only works because Stage 3 material is already retrieval rather than learning. If it is not, the 12-week plan collapses around week 5, which is exactly when it stops being recoverable. **18–20 h/week next to a full-time job is two hours every weekday evening plus most of a weekend for three months**; plan it only with leave, a protected light quarter, or a loop date that justifies it (2.7) |
+| **Reading (Phase R)** | Papers, postmortems, and your target company's own engineering blog read in depth — staff interviewers notice when you know how *their* system is built and what it broke last year |
+| **Next step** | Pass Gate 4 → Stage 5 only if the role is architect-titled or the loop includes a document review. Otherwise, the next step is the loop |
 
 #### Stage 5 — Architect (L7–L8 / enterprise architect)
 
@@ -193,6 +267,8 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | **Interview signal** | Judgement over recall. Usually a review of *your* artifact plus stakeholder pressure, rather than “design Twitter” — see the honest limit in 2.5 |
 | **Time** | **+8–12 weeks @ 6–8 h/wk ≈ 60–100 h**, on top of Stage 4 |
 | **Why that long** | Almost no new theory (~15 h). The hours go into drafting, getting a real reader to disagree, and rewriting. **Feedback latency sets this calendar, not concept load** — you cannot compress someone else's review turnaround |
+| **Reading (Phase R)** | Migration and decision write-ups — Stripe's online migrations, GitHub's database partitioning, Figma's sharding — read as *documents*: how they framed the problem, what they rejected, how they sequenced the change |
+| **Next step** | The loop. Stage 5 has no gate after it; the panel review in 2.5 week 10 is the last check |
 
 ### 2.1 Junior — 16-week calendar (8–10 hrs/week)
 
@@ -206,9 +282,29 @@ fails. Re-reading Stage 1 material because it is comfortable is the second.
 | 14 | AI basic: RAG chatbot sketch, no GPU deep dive | Know when to retrieve vs generate |
 | 15–16 | Mocks + weak spots | 4–6 timed mocks |
 
+**Every week, all 16:** one hour of Phase R reading. In weeks 9–13, pick posts about the problem you
+are drawing that week, *after* you have drawn it.
+
 ### 2.2 Mid — 20-week calendar
 
 Junior plan compressed into weeks 1–8, then: KV store, news feed, chat, notification, web crawler, autocomplete; DDIA Ch. 5–6; **Phase 2b** (one week — it changes how you read every latency number afterwards); one geo **or** metrics design; AI intermediate (hybrid search + evals); mocks from week 4 (1/week) then 2/week in the last month.
+
+The same plan, week by week:
+
+| Weeks | Focus | Outcome |
+|---|---|---|
+| 1–2 | Phase 0; Phase LLD fundamentals at speed; Phase 1b | Framework from memory; estimation without notes |
+| 3–4 | Phase 1 (skip the papers); URL shortener, rate limiter, unique IDs | First mock in week 4 (1/week from here) |
+| 5–7 | Phase 2 — including contention, hot keys and large blobs; DDIA Ch. 5–6; KV store | Storage picked from access patterns in under five minutes |
+| 8 | Phase 2b — networking and real-time fan-out | Every arrow annotated with protocol, timeout and who retries |
+| 9–10 | Phase 3 — Kafka model, outbox, durable execution, *design a queue*; news feed, notifications | Async path drawn with its failure mode |
+| 11–12 | Phase 4 — APIs and edge; chat, web crawler, autocomplete | Clean API sections in every mock |
+| 13–14 | One geo **or** metrics design; one current-rotation prompt from Section 6 (flash sale, auction or top-K) | One design with real contention, defended |
+| 15–16 | Phase AI intermediate — hybrid retrieval, evals, token cost; RAG chatbot | An AI HLD in the Section 5 timebox |
+| 17–18 | Mid LLD list (Section 7) as 90-minute machine-coding builds | A build a stranger can clone and run |
+| 19–20 | Mocks 2/week, weak spots only | Gate 2 attempted |
+
+**Parallel throughout:** LLD 2 h/week, Phase R 1 h/week.
 
 ### 2.3 Senior — 24-week standard (employed, ~8–10 hrs/week)
 
@@ -226,16 +322,34 @@ Junior plan compressed into weeks 1–8, then: KV store, news feed, chat, notifi
 | 18 | Security (Phase 8) |
 | 19 | Evolution and change safety (Phase 10) |
 | 20–21 | Two specializations (Phase 9: Xu Vol. 2 + AI serving **or** payments **or** storage) |
-| Parallel | LLD 2–3 hrs/week; Phase AI basic then intermediate woven across weeks 8–19; one timed mock/week from week 6–8 |
+| Parallel | LLD 2–3 hrs/week; Phase AI basic then intermediate woven across weeks 8–19; one timed mock/week from week 6–8; Phase R 1 h/week — postmortems from week 13 |
 | 22–24 | Mock intensive (**Phase 11**) |
 
 Phase 3b is the cut in this calendar unless the role is data-adjacent — see 2.6. Nothing here
 double-books a week on purpose: when specializations and the mock intensive overlap, it is the mocks
 that get dropped, and those are the ones that would have told you what to study.
 
-### 2.4 Staff — intensive 12-week (loop scheduled, ~18–20 hrs/week)
+### 2.4 Staff — intensive 12-week (loop scheduled, ~18–20 hrs/week), or standard 24–26-week
 
-Use this when the loop is already booked. The **AI ladder occupies weeks 7–8 in full** rather than as a skim, and **Xu Vol. 2** problems are mixed into the mocks from week 8 so the domain cruxes land under time pressure rather than in reading.
+**Standard pace (no loop booked, 8–10 hrs/week).** This is the default for an employed candidate,
+and the one to choose unless a date forces the intensive.
+
+| Weeks | Focus | Mocks |
+|---|---|---|
+| 1 | Phase 0 + baseline diagnostic mock against Section 10 | 1 diagnostic |
+| 2–5 | Phase 1 with the papers (Raft, Dynamo, Spanner); toy Raft election; DDIA Ch. 5–9 as revision | — |
+| 6–9 | Phases 2, 2b, 3 as revision with depth on what the diagnostic exposed; sharded KV + saga build | 1 every other week |
+| 10–12 | Phases 5, 6, 6b at full depth; cell and blast-radius drill on two of your designs | 1/week |
+| 13–14 | Phases 7, 8; OTel + failover hands-on | 1/week |
+| 15–17 | Phase AI intermediate → advanced, agents, evals, cost model | 1/week, one AI round |
+| 18–19 | Phase 10 at full depth; migrate one of your own designs | 1/week, one deep dive |
+| 20–22 | Xu Vol. 2 domain cruxes + one Phase 9 specialization | 1–2/week, adversarial |
+| 23–24 | Staff polish: drive the room, cost/ops/org unprompted | 1/week |
+| 25–26 | Buffer and taper — no new theory | 1–2 confidence mocks |
+
+**Parallel throughout:** LLD 1–2 h/week (whiteboard OOD level), Phase R 1–1.5 h/week.
+
+**Intensive (loop already booked).** Use this when the loop is already booked. The **AI ladder occupies weeks 7–8 in full** rather than as a skim, and **Xu Vol. 2** problems are mixed into the mocks from week 8 so the domain cruxes land under time pressure rather than in reading.
 
 | Week | HLD (main) | LLD (evenings) | Hands-on | Mocks |
 |---|---|---|---|---|
@@ -252,7 +366,8 @@ Use this when the loop is already booked. The **AI ladder occupies weeks 7–8 i
 | **11** | Optional: stock exchange / video / multi-region checkout / weight distribution | — | — | 3 mocks |
 | **12** | Taper — no new theory | — | — | 1–2 confidence mocks |
 
-If the loop is sooner: drop week 11, then merge 9–10.
+If the loop is sooner: drop week 11, then merge 9–10. Phase R shrinks to one hour a week here and
+narrows to your target company's own engineering blog and its last two public incident write-ups.
 
 ### 2.5 Architect / Principal — 10-week overlay (~6–8 hrs/week)
 
@@ -269,6 +384,9 @@ deliverable is documents, so this is a writing calendar, not a reading one.
 | 8 | Org and contracts: team boundaries, API ownership, who gets paged | Conway pushback — the org you have, not the one you want |
 | 9 | Position paper: where AI belongs in this product and where it must **not** | Cost per request, and the failure the user actually sees |
 | 10 | 60-minute panel review of the whole packet | Concede cleanly where you are wrong |
+
+**Every week:** one hour of Phase R, read as a writer — one migration or decision write-up, noting
+how its author framed the problem before proposing anything.
 
 **Honest limit:** architect-level loop formats vary far more than any other level, and I could not
 verify a stable published rubric for them the way Section 0 cites rubric sources for SWE loops.
@@ -289,29 +407,35 @@ arithmetic rather than vibes:
 + practice        problems x ~2.5 h  (one timed pass, one rewrite)
 + mocks           count x ~1.5 h     (including self-review against Section 10)
 + builds          hands-on
++ reading         weeks x ~1 h       (Phase R)
 = stage budget    must fit  weeks x weekly hours
 ```
 
-| Stage | Weeks | h/wk | Band | Concept | Practice | Mocks | Builds | Total |
-|---|---|---|---|---|---|---|---|---|
-| 1 Beginner | 14–16 | 8–10 | 112–160 h | ~60 h | 11 × 2.5 ≈ 28 h | 6 × 1.5 = 9 h | ~20 h | **~117 h** |
-| 2 Intermediate | 16–20 | 8–10 | 128–200 h | ~95 h | 14 × 2.5 = 35 h | 10 × 1.5 = 15 h | ~15 h | **~160 h** |
-| 3 Senior | 20–24 | 8–10 | 160–240 h | ~120 h | 20 × 2.5 = 50 h | 14 × 1.5 = 21 h | ~20 h | **~211 h** |
-| 4 Staff | 22–24 *or* 10–12 | 8–10 / 18–20 | 176–240 h | ~130 h + 6 h papers | 24 × 2.5 = 60 h | 20 × 1.5 = 30 h | ~15 h | **~241 h** |
-| 5 Architect | +8–12 | 6–8 | 48–96 h | ~15 h | — | 1 panel | ~70 h writing | **~87 h** |
+| Stage | Weeks | h/wk | Band | Concept | Practice | Mocks | Builds | Reading | Total |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 Beginner | 14–16 | 8–10 | 112–160 h | ~60 h | 11 × 2.5 ≈ 28 h | 6 × 1.5 = 9 h | ~20 h | ~15 h | **~132 h** |
+| 2 Intermediate | 16–20 | 8–10 | 128–200 h | ~100 h | 14 × 2.5 = 35 h | 10 × 1.5 = 15 h | ~15 h | ~18 h | **~183 h** |
+| 3 Senior | 20–24 | 8–10 | 160–240 h | ~120 h | 20 × 2.5 = 50 h | 14 × 1.5 = 21 h | ~20 h | ~22 h | **~233 h** |
+| 4 Staff (standard) | 24–26 | 8–10 | 192–260 h | ~130 h + 6 h papers | 24 × 2.5 = 60 h | 20 × 1.5 = 30 h | ~15 h | ~25 h | **~266 h** |
+| 4 Staff (intensive) | 10–12 | 18–20 | 180–240 h | ~130 h + 6 h papers | 24 × 2.5 = 60 h | 20 × 1.5 = 30 h | ~15 h | ~12 h | **~253 h** |
+| 5 Architect | +8–12 | 6–8 | 48–96 h | ~15 h | — | 1 panel | ~70 h writing | ~10 h | **~97 h** |
 
 The **Concept** column is what remains *after* the cuts listed below and after discounting earlier-stage material to revision. The raw menu is larger — see the next paragraph.
 
-Stages 1, 2 and 5 land mid-band. **Stages 3 and 4 land at the top of theirs** — that is not sloppy
-arithmetic, it is the honest answer: a senior at 8 h/week needs 24 weeks, not 20, and a staff
-candidate at 8 h/week should not plan 22.
+Stage 1 lands mid-band and Stage 2 in the upper half. **Stage 3 lands at the top of its band, and
+Stages 4 and 5 land just over theirs** — that is not sloppy arithmetic, it is the honest answer: a
+senior needs 24 weeks at close to 10 h/week, not 20 weeks at 8; a staff candidate needs 26 weeks at 10 h/week, not 22;
+an architect overlay needs the full 12 weeks. The staff intensive overshoots its band by ~5%, which
+is survivable only because its *Concept* line is revision — if it is not, you are not on the
+intensive. Reading is costed rather than hidden because it is the line people silently drop first,
+and it is the one that keeps your vocabulary current (Phase R).
 
 **The phase tables oversubscribe the calendar on purpose.** Add up every *Time* entry in Phases
-1–10 and you get **~161 h of concept material** — and that is before Phase AI (~50 h: 34 across the
+1–10 and you get **~169 h of concept material** — and that is before Phase AI (~52 h: 36 across the
 three tiers, 16 across agents, evals and the cost model), before Phase 9 specializations (5–8 h
-each), before the ~6 h of papers, and before a single mock. A senior at 9 h/week for 24 weeks has
-~216 h in total, of which LLD takes ~60 h, leaving roughly **115 h of concept budget against 210 h+
-of concept material.**
+each), before the ~6 h of papers, and before a single mock. A senior at 10 h/week for 24 weeks has
+~240 h in total; take out LLD (~60 h), mocks and builds (~41 h) and reading (~22 h) and roughly
+**117 h of concept budget is left against 220 h+ of concept material.**
 
 The gap is the point. The phases are a *menu with times attached* so that you cut deliberately
 instead of running out of weeks by accident. The standard cuts, in order:
@@ -319,10 +443,10 @@ instead of running out of weeks by accident. The standard cuts, in order:
 1. **Phase 3b** entirely, unless the role is data-adjacent (−8 h)
 2. **One of the two Phase 9 specializations** (−6 h)
 3. **The Phase 1 papers** at anything below senior (−6 h)
-4. **Phase AI advanced** unless the role touches inference infrastructure (−16 h)
+4. **Phase AI advanced** unless the role touches inference infrastructure (−17 h)
 5. **Vendor-tagged rows** (🟨) anywhere the company does not use that cloud (−5 h)
 
-That is ~40 h recovered, which is what turns a 210 h menu into a 170 h plan — still above the 115 h
+That is ~40 h recovered, which is what turns a 220 h menu into a 180 h plan — still above the 117 h
 budget, which is why Stage 3 genuinely needs 24 weeks rather than 20 and why the fundamentals
 (🟦) are the rows you never cut.
 
@@ -335,6 +459,52 @@ budget, which is why Stage 3 genuinely needs 24 weeks rather than 20 and why the
 
 **Error bars: ±20%**, and wider if you have never sat a timed mock. Log four weeks of real hours
 in the Section 11 tracker, then re-derive your own numbers instead of trusting these.
+
+### 2.7 The weekly rhythm — what 8–10 hours looks like next to a job
+
+Every calendar above assumes the same week. Fix the *slots*, not the topics: the calendar decides
+what goes in each slot, and the slots are what make the hours real rather than aspirational.
+
+| Slot | When | Hours | What goes in it |
+|---|---|---|---|
+| Concept | 2 weekday evenings × 1.5 h | 3 h | The phase your calendar names this week — the *Time* column tells you whether it fits |
+| Design or build | Weekend block | 2.5–3 h | One HLD problem (timed pass + rewrite) **or** one LLD/machine-coding build |
+| LLD | 1 weekday evening | 1–1.5 h | Phase LLD — a pattern, a concurrency drill, or finishing the weekend build |
+| Reading (Phase R) | Commute, lunch, or one short evening | 1 h | One or two engineering posts, written up as a five-line card |
+| Mock or review | Weekend, after the design block | 0.5–1.5 h | From the week your stage says: a timed mock scored against Section 10. Before that: re-score last week's design |
+
+That is 8–10 hours across four sittings, with two evenings a week left untouched. Those two evenings
+are the buffer that keeps the plan alive through an on-call week, a release, or an illness.
+
+**When you fall behind** — and everyone does around week 5:
+
+1. **Never cut the mock or the design block.** They are the graded skill; reading about a topic you
+   have not drawn is the least valuable hour in the week
+2. **Cut concept hours first**, using the cut list in 2.6 — 🟧 and 🟨 rows, then Phase 3b, then one specialization
+3. **Slip the calendar by a week rather than doubling the next week.** A double week is the
+   most common way an employed plan dies
+4. **Reading drops to 30 minutes, never to zero.** One post a week is enough to keep the habit
+
+**Realism check.** About 12–15 hours a week is a sustainable ceiling for most people who also hold a
+full-time job; beyond that, sleep and the day job start paying for it. The 18–20 h/week staff
+intensive is a sprint for a booked loop, not a pace. If your real four-week mean (Section 11) is
+under 8 hours, use the longer end of your stage's weeks and expect to add ~20% more.
+
+### 2.8 The whole distance — junior to architect
+
+The five stages are **not one 90-week course.** Nobody should run Stage 1 straight into Stage 5.
+Between stages there is real work: shipping systems, carrying a pager, leading a migration. That
+work is where Stage 3 to Stage 5 answers actually come from, and no reading replaces it. Use the plan
+like this:
+
+- **Prepare for the loop in front of you.** Run your stage's calendar before a job search, not continuously
+- **Between searches, keep two habits alive:** Phase R reading (1 h/week) and one design or LLD drill
+  a fortnight. That keeps Gate N passable without a full re-run
+- **Collect evidence for the next stage while you work.** Every decision you make at work is a
+  candidate ADR for Stage 5; every incident you see is a deep-dive story for Stage 3; every migration
+  is Phase 10 material you can describe from experience rather than from Fowler
+- **Re-take the placement test (2.0) before each search.** Promotions and years of experience do
+  not move you up a stage; passing the gate does
 
 ---
 
@@ -386,7 +556,7 @@ Use after Vol. 1. Each chapter is a **domain crux**, not a new framework.
 
 This is the **why**. Interview prep that only reads Xu is easy to crack with “what happens if the leader dies?”
 
-**Edition note (2026):** Kleppmann + Riccomini **2e** shipped March 2026 ([Kleppmann’s announcement](https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html)). Chapter **numbers and MapReduce emphasis changed**. The table below is **1e**, which is still what most notes, blogs, and interviewers share. If you own 2e, map by *topic name* (replication, partitioning, isolation, streams), not chapter number.
+**Edition note (2026):** Kleppmann + Riccomini **2e** shipped March 2026 ([Kleppmann’s announcement](https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html)). Chapter **numbers changed**: 2e opens with chapters on trade-offs in data-systems architecture and on defining nonfunctional requirements, and the batch chapter keeps MapReduce only as a teaching model, with Spark/Flink-style dataflow engines as the main subject ([Kleppmann on The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications)). The table below is **1e**, which is still what most notes, blogs, and interviewers share. If you own 2e, map by *topic name* (replication, partitioning, isolation, streams), not chapter number. The 2e *Defining nonfunctional requirements* chapter is worth reading at any stage, because NFRs are step 1 of every Phase 0 answer.
 
 | DDIA | Interview talking points | When to read |
 |---|---|---|
@@ -440,12 +610,23 @@ flowchart LR
     SPINE --> P9["Phase 9<br/>Specializations"]
     SPINE --> P10["Phase 10<br/>Evolution and change safety"]
     PLLD["Phase LLD<br/>parallel, every week"] --> P11["Phase 11<br/>Mock intensive"]
+    PR["Phase R<br/>reading, every week"] --> P11
     P3B --> P11
     P6B --> P11
     PAI --> P11
     P9 --> P11
     P10 --> P11
 ```
+
+**How to work any phase, in the same five moves:**
+
+1. Read the **Outcome** line first — it is the test you will run on yourself at the end
+2. Work the concept table top to bottom, 🟦 rows first; stop a row when you can explain it out loud in two minutes, not when you finish the resource
+3. Do the phase's **Drill** or **Hands-on** — this is where the phase actually lands
+4. Pick this week's **Phase R** post from the matching row of the reading map, and write its five-line card
+5. Close with one design from Section 6 that uses the phase, and mark the tracker (Section 11)
+
+The phases below are in dependency order. Your stage card (2.0) says which ones you need and how deep.
 
 ### Phase 0 — Interview operating system (Week 1 of every track)
 
@@ -537,11 +718,14 @@ Rung 8 without a stated requirement is a **negative** signal, not an advanced on
 | Replication topologies | 🟦 | 2 h | Dynamo + [PostgreSQL HA](https://www.postgresql.org/docs/current/high-availability.html) |
 | 2PC, Saga, TCC, outbox | 🟦 | 3 h | [microservices.io Saga](https://microservices.io/patterns/data/saga.html) |
 | CDC | 🟩 | 1 h | Debezium mental model; DDIA Ch. 11–12 |
-| Distributed SQL / NewSQL | 🟨/🟧 | 2 h | [Cockroach architecture](https://www.cockroachlabs.com/docs/stable/architecture/overview) |
+| Distributed SQL / NewSQL | 🟨/🟧 | 2 h | [Cockroach architecture](https://docs.cockroachlabs.com/docs/stable/architecture/overview) |
 | Search (inverted index) vs OLTP | 🟩 | 1.5 h | Elasticsearch reference — inverted index |
 | Time-series / metrics stores | 🟩 | 1 h | Xu Vol. 2 metrics chapter ideas; Prometheus/VictoriaMetrics docs (skim) |
 | Object storage vs file vs block | 🟦 | 1.5 h | Xu Vol. 2 S3 chapter; GFS paper |
 | Vector / hybrid search | 🟧→🟩 | 2 h | pgvector docs; Phase AI |
+| **Contention**: optimistic vs pessimistic locking, conditional writes, reservation holds with a TTL | 🟦 | 1.5 h | DDIA Ch. 7 (lost update); the Ticketmaster, flash-sale and auction prompts in Section 6 all reduce to this |
+| **Hot keys and hot partitions**: key salting, write sharding, request coalescing, local caches | 🟦 | 1 h | Xu Vol. 2 leaderboard; [Discord — how we store trillions of messages](https://discord.com/blog/how-discord-stores-trillions-of-messages) (request coalescing in front of the store) |
+| **Large blobs**: presigned URLs, multipart and resumable upload, metadata vs bytes | 🟦 | 1 h | Xu Vol. 1 Ch. 15; S3 docs — presigned URLs and multipart upload. “Upload through the app server” is the classic miss |
 
 **2026 note:** Distributed SQL is mature in lanes (Cockroach/Yugabyte Postgres-compat multi-region; TiDB MySQL+HTAP; Spanner GCP). The common production *and interview* mistake is adopting it before single-region Postgres/MySQL + replicas + boring sharding is insufficient. Say that out loud.
 
@@ -577,6 +761,7 @@ and which hop your tail latency is hiding in.
 | Connection pooling, keep-alive, file descriptors | 🟦 | 1 h | The bottleneck behind “just add servers” | HPBN; your driver's pool docs |
 | Timeout **budgets** across hops | 🟦 | 1 h | A retry storm is a timeout-budget bug | [gRPC deadlines](https://grpc.io/docs/guides/deadlines/); Phase 5 |
 | Long-lived transports: WebSocket, SSE, long poll | 🟦 | 1.5 h | Chat, presence, **LLM token streaming** | Xu Vol. 1 Ch. 12; Phase AI |
+| **Real-time fan-out at scale**: connection servers, a pub/sub backplane, routing a message to the box that holds the socket | 🟦 | 1.5 h | Live comments, chat, presence, collaborative editing — “which server holds this user's socket?” | Xu Vol. 2 nearby friends; Phase 9 realtime |
 
 **Drill:** take one design you have already done and annotate every arrow with a protocol, a
 timeout, and who retries. Most designs fall apart at “who retries?”
@@ -590,19 +775,22 @@ timeout, and who retries. Most designs fall apart at “who retries?”
 | Kafka: partitions, ISR, RF, min.insync.replicas | 🟦 | 2 h | [Kafka docs](https://kafka.apache.org/documentation/) Design + Implementation |
 | KRaft (ZK removed in 4.0) | 🟩 | 2 h | [Kafka 4.0 announcement](https://kafka.apache.org/blog/2025/03/18/apache-kafka-4.0.0-release-announcement/); [KRaft guide](https://developer.confluent.io/learn/kraft/); KIP-500 |
 | EOS (idempotent producer + txn API) | 🟦 | 1.5 h | Kafka transactions docs |
-| Consumer rebalance: cooperative sticky, then **KIP-848** | 🟩 | 1.5 h | [KIP-848](https://cwiki.apache.org/confluence/x/HhD1D) — broker-side coordination, GA in 4.0, opt-in; classic protocol deprecated in 4.3 |
+| Consumer rebalance: cooperative sticky, then **KIP-848** | 🟩 | 1.5 h | [KIP-848](https://cwiki.apache.org/confluence/x/HhD1D) — broker-side coordination, GA in 4.0, opt-in; 4.3 logs a recommendation to move off the classic protocol |
 | CQRS, event sourcing, snapshotting | 🟦 | 2–2.5 h | Fowler CQRS; Azure CQRS/ES; [microservices.io ES](https://microservices.io/patterns/data/event-sourcing.html) |
 | Transactional outbox | 🟦 | 1.5 h | [Outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html) |
 | Backpressure | 🟦 | 1.5 h | [Reactive Streams](https://www.reactive-streams.org/) |
 | Batch vs stream (DDIA 10–11) | 🟦 | 2 h | When Spark/Flink vs Kafka Streams |
 | Design a **message queue** (not only “use Kafka”) | 🟦 | 3 h | Xu Vol. 2 Ch. 4 |
+| **Durable execution / workflow engines** vs a hand-rolled saga: persisted steps, retries, timers, compensation | 🟩 | 1.5 h | [Temporal — workflows](https://docs.temporal.io/workflows); AWS Step Functions docs. The current answer to “multi-step process that must survive a crash” — name it, then say what it costs you |
+| Delayed and scheduled work: delay queues, timer wheels, at-least-once firing, idempotent handlers | 🟦 | 1 h | The job-scheduler prompt in Section 6; Phase 1 idempotency |
 
 **Verified:** Kafka is KRaft-only from 4.0 (18 Mar 2025); the current line is **4.2 (17 Feb 2026)**
 and **4.3 (22 May 2026)**. ZK clusters migrate via the 3.9 bridge *before* 4.x, and production runs
 dedicated controllers. Two things commonly date a candidate here: ZK-era war stories told
-untranslated, and the rebalance vocabulary — **KIP-848** moved coordination to the broker, is GA
-from 4.0 but still opt-in, and 4.3 deprecated the classic protocol with the default switch targeted
-at 5.0. On a 4.x cluster, say “server-side assignor”, not “stop-the-world rebalance”. See Section 12.
+untranslated, and the rebalance vocabulary — **KIP-848** moved coordination to the broker and is GA
+from 4.0 but still opt-in; 4.3 logs a recommendation to switch when a consumer starts on the classic
+protocol, and the documentation says the classic protocol will be deprecated in a future release.
+On a 4.x cluster, say “server-side assignor”, not “stop-the-world rebalance”. See Section 12.
 
 **Blogs:** [Netflix Keystone](https://netflixtechblog.com/keystone-real-time-stream-processing-platform-a3ee651812a); [LinkedIn Engineering](https://www.linkedin.com/blog/engineering) (Kafka origin); Confluent KRaft guide.
 
@@ -639,7 +827,7 @@ has version semantics you can name. Dated claim — see Section 12.
 | REST maturity, versioning, cursor pagination, idempotency keys | 🟦 | 2 h | [Stripe idempotency](https://stripe.com/blog/idempotency); [Stripe API versioning](https://stripe.com/blog/api-versioning) |
 | GraphQL vs REST vs gRPC | 🟦 | 1.5 h | [gRPC intro](https://grpc.io/docs/what-is-grpc/introduction/); [GraphQL learn](https://graphql.org/learn/) |
 | BFF | 🟩 | 0.5 h | [Sam Newman BFF](https://samnewman.io/patterns/architectural/bff/) |
-| Gateway: authn/z, rate limit, shape, protocol | 🟦 | 1.5 h | [Kong concepts](https://docs.konghq.com/gateway/latest/); [Envoy overview](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/arch_overview) |
+| Gateway: authn/z, rate limit, shape, protocol | 🟦 | 1.5 h | [Kong Gateway](https://developer.konghq.com/gateway/); [Envoy overview](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/arch_overview) |
 | Kubernetes Gateway API | 🟩 | 2 h | [Gateway API](https://kubernetes.io/docs/concepts/services-networking/gateway/) |
 | Mesh vs gateway (N-S vs E-W) | 🟦 | 1 h | Istio “what is Istio”; **when not to mesh** |
 | Rate limiter algorithms (distributed) | 🟦 | 2 h | [Stripe rate limiters](https://stripe.com/blog/rate-limiters); Xu Ch. 4 |
@@ -746,7 +934,7 @@ sending 100× its normal traffic?
 | Concept | Type | Time | Resource |
 |---|---|---|---|
 | AuthN vs AuthZ, session vs token | 🟦 | 1 h | [Auth0 — authn vs authz](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization) |
-| OAuth2, OIDC, JWT pitfalls | 🟦 | 3 h | [oauth.net/2](https://oauth.net/2/); [OIDC](https://openid.net/connect/) |
+| OAuth2, OIDC, JWT pitfalls | 🟦 | 3 h | [oauth.net/2](https://oauth.net/2/); [OIDC](https://openid.net/developers/how-connect-works/) |
 | Zero Trust | 🟩 | 1 h | [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final) |
 | mTLS, secrets (KMS/Vault) | 🟩 | 1.5 h | Vault docs overview |
 | API security | 🟦 | 1 h | [OWASP API Security Top 10](https://owasp.org/API-Security/) |
@@ -794,7 +982,7 @@ have no way to tell a good answer from a confident one).
 
 **Resources:** [Hello Interview — ML / system design tracks](https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction); OpenAI / Anthropic API docs (rate limits, caching if offered); [OWASP Top 10 for LLM apps](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
 
-#### Intermediate — ~12 h (senior generalist; mid at AI-product companies)
+#### Intermediate — ~13 h (senior generalist; mid at AI-product companies)
 
 - Chunking, overlap, metadata filters **before** ANN; **hybrid BM25 + dense**, RRF (typical \(k=60\)), cross-encoder rerank of ~50–200 → 3–10 chunks
 - Embedding model versioning (index rebuild when the model changes)
@@ -804,12 +992,14 @@ have no way to tell a good answer from a confident one).
 - Feature store / embedding pipeline (batch + nearline) — [Uber Michelangelo](https://www.uber.com/blog/michelangelo-machine-learning-platform/) and [generative follow-up](https://www.uber.com/blog/from-predictive-to-generative-ai/)
 - Guardrails: input/output filters, tool-call allowlists
 - Observability: traces around retrieval + generation; cost per request
+- **ANN index families** at the level of trade-offs, not maths: HNSW (fast, memory-hungry, good recall), IVF (cluster then search, cheaper, recall depends on probes), product quantization (compress vectors, lose some recall). Filtering *after* ANN silently drops results — say where the filter runs
+- **Structured outputs:** JSON-schema-constrained generation and validation at the boundary. A model's output is untrusted input to the next service (Phase 8), and a schema is the contract that lets you retry or reject it
 
 **Vector store pick (heuristic, not a benchmark):** [pgvector](https://github.com/pgvector/pgvector) if Postgres + mid scale + SQL FTS; Pinecone/Weaviate when you want managed hybrid; Milvus at large N / more ops; [FAISS](https://github.com/facebookresearch/faiss) is a **library**, you own HA. Filtered ANN is the hard part.
 
 **Resources:** [vLLM PagedAttention](https://vllm.ai/blog/2023-06-20-vllm); [Anthropic contextual retrieval](https://www.anthropic.com/engineering/contextual-retrieval); [OpenAI prompt caching](https://openai.com/index/api-prompt-caching/).
 
-#### Advanced — ~16 h (staff, ML platform, inference infra, frontier-lab adjacent)
+#### Advanced — ~17 h (staff, ML platform, inference infra, frontier-lab adjacent)
 
 - Prefill vs decode; **continuous batching**; **KV cache**; PagedAttention; prefix/prompt cache
 - Quantization (FP8/INT8/AWQ etc.) as a **latency/quality/cost** lever, not a buzzword
@@ -820,6 +1010,7 @@ have no way to tell a good answer from a confident one).
 - Distributing **weights** (Xu-style “huge file to thousands of machines”)
 - Agents: tool calling, loops, MCP as an integration pattern — **scope and kill-switch**, not a 20-agent diagram
 - Safety evals, prompt injection as an authz problem
+- **Reasoning models change the capacity model:** the hidden “thinking” tokens are decode work you pay for in latency and cost but never show the user. A request's output length becomes a distribution with a long tail, so size the fleet and the timeout on p99 output tokens, not the mean, and treat a reasoning budget as a knob like any other
 
 ```mermaid
 flowchart TD
@@ -854,7 +1045,8 @@ core**, and every question is a systems question wearing AI clothes.
 - **Authorization is the hard part.** The agent must act as the *user*, not as the service. Retrieved content is untrusted input, so prompt injection is an **authz escalation** path, not a content-filtering nuisance
 - **Context as a managed resource:** what is in the window, why, and what you evict — system prompt, retrieved chunks, tool results, summarised history. Compaction is a caching decision with a correctness cost
 - **Memory tiers:** session state, durable per-user facts, procedural/learned behaviour. Say where each is stored, who may read it, and **how it is deleted** (Phase 8, and Phase 10 for the deletion backfill)
-- **MCP as the integration pattern:** treat a server as an untrusted dependency behind authz and quotas, not as a library you import
+- **MCP as the integration pattern:** treat a server as an untrusted dependency behind authz and quotas, not as a library you import. The current spec is stateless per request (Section 12), so an MCP server scales and load-balances like any other stateless service — and any state that spans calls is an explicit handle *you* designed
+- **Agent-to-agent protocols** (🟧) — the A2A protocol, started by Google and now hosted by the Linux Foundation ([a2a-protocol.org](https://a2a-protocol.org/)), and similar exist for agents calling other agents across organisations. Know the name and that it is an RPC contract with the same authz questions; do not put it on a diagram without a reason
 - **Multi-agent only with a reason** — genuinely parallel subtasks, or separate authz domains. A twenty-agent diagram with no reason is a negative signal, the same way active-active is in Phase 6
 - **Failure modes to name unprompted:** a loop that never terminates, a tool that fails silently, an incident you cannot reproduce because you logged the output and not the inputs, and cost running away in a retry loop
 
@@ -890,6 +1082,7 @@ cost is per token rather than per request.
 - **Latency budget:** TTFT is a prefill problem, inter-token latency is a decode problem. Name which one the requirement cares about before you choose a knob
 - **Autoscale on queue depth and KV occupancy.** CPU-based HPA on a GPU fleet is a recognisable mistake
 - **The decision you are being graded on** is usually *smaller model, cache harder, or retrieve better* — not *buy more GPUs*
+- **Not everything is synchronous.** Work that can wait — nightly enrichment, eval runs, backfilling embeddings — goes through a provider's batch API, which both [OpenAI](https://developers.openai.com/api/docs/guides/batch) and [Anthropic](https://platform.claude.com/docs/en/build-with-claude/batch-processing) document at half the synchronous price, in exchange for completion within a 24-hour window rather than seconds. Splitting interactive from deferrable traffic is the AI version of Phase 3's “push slow work async”
 
 ---
 
@@ -978,9 +1171,10 @@ Drawing load balancers in LLD (or class diagrams in HLD) is a common miss.
 **Fundamentals**
 
 - SOLID, DRY, KISS, YAGNI — **name a violation in your own sketch**. Rule of three: a pattern when the **third** variant appears (or they ask for extensibility).
-- **Tier-1 patterns:** Strategy, State, Observer, Factory. **Tier-2:** Decorator, Command, Builder, Chain of Responsibility (logger), Template Method, Composite (file tree), Specification (Unix `find`). Singleton only if you can say why DI is usually better.
+- **Tier-1 patterns:** Strategy, State, Observer, Factory. **Tier-2:** Decorator, Command, Builder, Chain of Responsibility (logger), Template Method, Composite (file tree), Specification (Unix `find`). Singleton only if you can say why DI is usually better. **Tier-3 (recognise and name when you see it):** Adapter (wrapping a third-party client), Facade (a subsystem behind one entry point), Proxy (lazy loading, access control, caching), Memento (undo), Visitor (operations over a fixed tree), Flyweight (many small shared objects). Know when each is the honest description of code you already wrote; do not reach for them to decorate an answer.
 - UML: class + sequence for the critical path — correct arrows on the **hinge** classes beat complete getters
-- Concurrency: thread pools, locks vs CAS, `ConcurrentHashMap` (not Java 7 segments). **Virtual threads ([JEP 444](https://openjdk.org/jeps/444), final in 21):** cheap blocking I/O, not faster CPU; a tiny JDBC pool still bottlenecks. **Scoped values** finalized in JDK 25 ([JEP 506](https://openjdk.org/jeps/506)) — prefer over `ThreadLocal` with millions of VTs. **Structured concurrency is still preview** — sixth preview in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)), not final as of Sep 2026. Do not claim it as a production default on any LTS without `--enable-preview`; see Section 12.
+- Concurrency: thread pools, locks vs CAS, `ConcurrentHashMap` (not Java 7 segments). **Virtual threads ([JEP 444](https://openjdk.org/jeps/444), final in 21):** cheap blocking I/O, not faster CPU; a tiny JDBC pool still bottlenecks. **Scoped values** finalized in JDK 25 ([JEP 506](https://openjdk.org/jeps/506)) — prefer over `ThreadLocal` with millions of VTs. **Structured concurrency is still preview** — sixth preview in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)) and seventh in JDK 27 ([JEP 533](https://openjdk.org/jeps/533)), so it is not final on any release yet. Do not claim it as a production default on any LTS without `--enable-preview`; see Section 12.
+- **Not on Java?** The same round exists in every language; translate the vocabulary rather than the code. Python: `threading` locks and `queue.Queue` for the classic races, `asyncio` for I/O-bound concurrency, and the GIL as a fact you can explain. Go: goroutines and channels, `sync.Mutex`, `context` for deadlines and cancellation. C++: `std::mutex`, `std::atomic`, RAII lock guards. Interviewers grade the invariant you protect, not the keyword
 - Machine coding: compiling code > pretty UML; YAGNI on Redis locks for a single-process round
 - **Boundaries, not just classes:** ports and adapters — domain logic that does not import your HTTP framework or your ORM. The test is whether the core compiles without them ([hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/))
 - **Domain modelling, lightly:** entity vs value object, aggregate and invariant, the bounded context you are inside. You are not doing full DDD in 45 minutes; you *are* expected to know that `Money` is not a `double` and that an invariant belongs in one place ([Fowler on DDD](https://martinfowler.com/bliki/DomainDrivenDesign.html), [BoundedContext](https://martinfowler.com/bliki/BoundedContext.html))
@@ -1032,10 +1226,76 @@ microseconds, and without it your test either sleeps or lies.
 
 ---
 
+### Phase R — Continuous reading: engineering blogs, postmortems, papers (parallel every week)
+
+**Why this phase exists:** books teach the primitives; they cannot tell you what a real team chose,
+under which numbers, and what broke a year later. That is exactly what interviewers reach for in a
+follow-up — “Discord moved off Cassandra; why?”, “what did the us-east-1 DynamoDB outage teach
+about DNS automation?” Candidates who read real write-ups answer with *constraints and evidence*;
+candidates who do not answer with a diagram. Reading is also how this document stays current:
+almost every dated claim in Section 12 was first noticed in a post like these.
+
+**Outcome:** you can name, for each phase you have studied, at least one real system that made the
+trade-off, the number that forced it, and what it cost them.
+
+**The weekly protocol (1 hour, every week, every stage — budgeted in 2.6):**
+
+1. **Pick** one or two posts from the reading map below, matched to the phase your calendar names this week. Use the daily list from `interview-curator/` (Section 14) as the feed when you want something newer
+2. **Read with a question**, not for completeness. Before you start, write: *what problem forced this?*
+3. **Write a five-line card** in your own notes:
+   - **Problem and scale** — the numbers that forced a change
+   - **Decision** — what they built
+   - **Rejected** — what they considered and why not
+   - **Cost** — what got worse, or what broke
+   - **Maps to** — the Phase and the Section 6 problem it belongs to
+4. **Once a month, turn a post into a mock:** give yourself the post's *problem statement*, design it for 45 minutes against the clock, *then* read how they did it and score the difference against Section 10. This is the single most efficient use of a company blog
+5. **Before a loop:** read your target company's own blog and its last two public incident write-ups. Saying “I read how you did X” is only useful if you can then say what you would do differently
+
+**What to read at each stage**
+
+| Stage | Diet | Why |
+|---|---|---|
+| 1 Beginner | Explainers ([ByteByteGo](https://blog.bytebytego.com/), Hello Interview breakdowns) plus one company post a week on a problem you have *already* drawn | You need the vocabulary, and to see that real systems start simple |
+| 2 Intermediate | Company posts mapped to the current phase — storage migrations in Phase 2, messaging platforms in Phase 3 | Second encounter with each primitive, inside a real constraint |
+| 3 Senior | Postmortems and the [AWS Builders' Library](https://aws.amazon.com/builders-library/) | Failure modes and operational judgement are the senior bar |
+| 4 Staff | Papers (Section 13), postmortems, and one company's blog read in depth | Staff answers cite evidence and know what broke elsewhere |
+| 5 Architect | Migration and decision write-ups, read as documents | How strong engineers frame, sequence and justify change in writing |
+
+**Reading map — where to find each phase in the wild.** Starter posts are verified to exist; when a
+deep link moves, search the company's blog for the title (Section 0).
+
+| Phase | Starter posts | Keep reading |
+|---|---|---|
+| 1b / 2 Data layer, sharding | [Discord — how we store trillions of messages](https://discord.com/blog/how-discord-stores-trillions-of-messages) (and its 2017 predecessor, [billions](https://discord.com/blog/how-discord-stores-billions-of-messages)); [Figma — how the databases team lived to tell the scale](https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/); [Slack — scaling datastores with Vitess](https://slack.engineering/scaling-datastores-at-slack-with-vitess/) | [Uber Engineering](https://www.uber.com/blog/engineering/), [Dropbox Tech](https://dropbox.tech/), [GitHub Engineering](https://github.blog/engineering/) |
+| 2 Object storage | [Dropbox — inside the Magic Pocket](https://dropbox.tech/infrastructure/inside-the-magic-pocket) | [All Things Distributed](https://www.allthingsdistributed.com/) (Werner Vogels) |
+| 1 / 2 Caching at scale | [Scaling Memcache at Facebook (NSDI 2013)](https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/nishtala) | [Meta Engineering](https://engineering.fb.com/) |
+| 3 Messaging and streams | [Netflix Keystone](https://netflixtechblog.com/keystone-real-time-stream-processing-platform-a3ee651812a) | [Netflix Tech Blog](https://netflixtechblog.com/), [LinkedIn Engineering](https://www.linkedin.com/blog/engineering), [Confluent blog](https://www.confluent.io/blog/) |
+| 5 / 6b Reliability, blast radius | [AWS — DynamoDB disruption in us-east-1, Oct 2025](https://aws.amazon.com/message/101925/); [Cloudflare — outage on 18 Nov 2025](https://blog.cloudflare.com/18-november-2025-outage/) | [danluu/post-mortems](https://github.com/danluu/post-mortems), [Cloudflare Blog](https://blog.cloudflare.com/), the Builders' Library |
+| 9 Realtime and collaboration | [Figma — how multiplayer works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/) | [Slack Engineering](https://slack.engineering/), [Discord engineering](https://discord.com/category/engineering) |
+| 9 Payments | [Stripe — idempotency](https://stripe.com/blog/idempotency); [Stripe — rate limiters](https://stripe.com/blog/rate-limiters) | [Stripe blog](https://stripe.com/blog), [Zerodha Tech](https://zerodha.tech/) |
+| 10 Change safety and migrations | [Stripe — online migrations at scale](https://stripe.com/blog/online-migrations); [GitHub — partitioning relational databases](https://github.blog/engineering/infrastructure/partitioning-githubs-relational-databases-scale/) | [Shopify Engineering](https://shopify.engineering/), [Spotify Engineering](https://engineering.atspotify.com/) |
+| AI serving | [Netflix — in-house LLM serving](https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c); [vLLM anatomy](https://vllm.ai/blog/2025-09-05-anatomy-of-vllm) | [vLLM blog](https://vllm.ai/blog), [LMSYS blog](https://lmsys.org/blog/), [PyTorch blog](https://pytorch.org/blog/) |
+| AI retrieval, agents, evals | [Anthropic — building effective agents](https://www.anthropic.com/engineering/building-effective-agents); [Anthropic — multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system); [Eugene Yan — patterns for LLM systems](https://eugeneyan.com/writing/llm-patterns/) | [Anthropic Engineering](https://www.anthropic.com/engineering), [Chip Huyen](https://huyenchip.com/blog/), [Hamel Husain](https://hamel.dev/), [Simon Willison](https://simonwillison.net/) (prompt injection, tracked continuously), [Lilian Weng](https://lilianweng.github.io/) |
+| Machine coding (India product firms) | — | [Flipkart Tech](https://blog.flipkart.tech/), [Razorpay Engineering](https://engineering.razorpay.com/), [Zerodha Tech](https://zerodha.tech/) — read for how they model the domain |
+
+**Aggregators and newsletters — for discovery, not as sources.** [The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/)
+(industry context, and the occasional deep interview with the author of a system), [InfoQ
+architecture](https://www.infoq.com/architecture-design/) (conference talks, written up),
+[High Scalability](https://highscalability.com/), [ByteByteGo](https://blog.bytebytego.com/), and
+[kilimchoi/engineering-blogs](https://github.com/kilimchoi/engineering-blogs) as the directory of
+company blogs. Follow a summary back to the original post before you repeat a number from it —
+the same rule Section 15 applies to this document.
+
+**What not to do:** read twenty posts and draw nothing. One post you converted into a 45-minute mock
+is worth more than a month of skimming, and Medium-style listicles that summarise other summaries
+are not reading — they are scrolling.
+
+---
+
 ### Phase 11 — Mock intensive
 
 - Self-record against Section 10 rubric; note evidence, not vibes
-- You need **another human** for follow-ups (peer, interviewing.io, Exponent, Hello Interview coaches)
+- You need **another human** for follow-ups (peer, interviewing.io, Aced — formerly Exponent, Hello Interview coaches)
 - Last week: **taper**. No new frameworks.
 
 ---
@@ -1058,6 +1318,12 @@ microseconds, and without it your test either sleeps or lies.
 the **irreversible actions** 7 → tools and their contracts 8 → the loop with its budgets and
 terminal states 10 → authz and prompt injection as an escalation path 8 → evals, cost ceiling and
 kill switch 7 → summary 5. The graded question is *what stops this thing*, not what it can do.
+
+**AI-enabled coding (60 min, Meta-style — not a design round, but it shares the skill):** a
+multi-file codebase you did not write, an AI assistant in the editor, and phases that run roughly
+bug-fix → implement → optimise. Budget: read and map the code before prompting anything 10 → fix
+and verify 15 → implement with the assistant, testing each piece 25 → optimise and explain 10. The
+graded part is that you **verify** what the assistant produced and can explain every line of it.
 
 **Architecture review / written doc (Stage 5, 60–90 min):** you present a system you actually
 built. Ten minutes of context, then the room attacks. Budget: constraints and what you optimised for
@@ -1086,6 +1352,23 @@ Do **depth on a subset**. Numbers in parentheses: Xu volume.
 **Staff-signal / 2026 AI + infra:**
 
 38. LLM serving at scale (batching, KV cache, GPU, fallback) 39. RAG support chatbot (hybrid retrieval, evals, PII) 40. Semantic search / hybrid index 41. Copilot / agent with tools (authz, loop limits, kill switch) 42. Recsys with two-tower / embeddings + ranker 43. Distribute model weights under bandwidth caps 44. Stock exchange matching (V2.13) 45. Realtime gaming presence + leaderboard 46. Eval platform for many agent workflows (golden sets, judges, CI gate — Phase AI) 47. AI gateway (token quotas per tenant, routing, semantic cache, audit) 48. Text-to-SQL over a warehouse (schema grounding, safety, cost per query) 49. Prompt/model deployment platform (one versioned artifact, canary, rollback)
+
+**Current rotation — product prompts with one hard sub-problem** (drawn from the practice catalogs
+interviewers and candidates use; see Section 12 for the date checked). Each one reduces to a
+pattern from Phases 2, 2b and 3, which is why they are worth doing even though no book chapter
+covers them:
+
+50. Flash sale (contention on a tiny inventory, queueing the burst — Phase 2 contention) 51. Online auction (concurrent bids, closing time, real-time updates — Phase 2 contention, Phase 2b fan-out) 52. Top-K / trending videos (heavy hitters, Count-Min, windowed aggregation — Phases 1b, 3b) 53. Price tracking service (scheduled crawling, change detection, notification fan-out — Phase 3 delayed work) 54. Online judge / LeetCode (sandboxed execution, queueing, contest-time spikes) 55. Local delivery (Gopuff-style: inventory by location, availability reads at scale — Phase 6 geo) 56. Fitness activity tracking (Strava-style: GPS ingest, leaderboards, privacy) 57. News aggregator (crawl, dedupe, rank, freshness) 58. Brokerage (Robinhood-style: market-data fan-out, order routing, strong consistency on orders) 59. Online chess (game state, matchmaking, real-time moves) 60. CI runner platform (GitHub Actions-style: job queue, isolated runners, log streaming) 61. Donations site (traffic spike for a campaign, payments, idempotency) 62. ChatGPT-style chat app (streaming tokens, conversation history, rate limits per user, model fallback — Phase AI, Phase 2b) 63. Live comments on a live stream (real-time fan-out to millions of viewers — Phase 2b)
+
+**Which problems to do at depth, by stage** (depth on 8–12 beats coverage of 40 — Section 1):
+
+| Stage | At depth | Why these |
+|---|---|---|
+| 1 Beginner | 1, 2, 3, then one of 6 / 7 / 8 | Every primitive in Phase 1b appears at least once |
+| 2 Intermediate | 4, 6, 8, 9, 12, 17, 20, plus one of 50 / 51 / 52 | Fan-out, storage choice, async, and one contention problem |
+| 3 Senior | 13, 21, 22, 26, 27, 28, 32, 34, 36, plus 39 | Deep dives with real failure modes, one migration, one AI system |
+| 4 Staff | 31, 35, 36, 38, 41, 46, 47, plus your target company's domain | Blast radius, change, and AI as infrastructure |
+| 5 Architect | One problem from your own system, written up as a design doc | The artifact is the interview (2.5) |
 
 ### 6.1 One worked sketch — the altitude to aim for
 
@@ -1130,7 +1413,7 @@ it is the entire skill.
 
 **Junior:** Parking lot • Vending machine • Library (Book vs **BookCopy**) • Logger • LRU cache • Tic-tac-toe / snake & ladder • Meeting scheduler (data model)
 
-**Mid:** Elevator (SCAN/LOOK, hall vs cabin) • Movie booking (seat locks) • ATM / banking • Hotel booking (inventory) • Splitwise • In-memory rate limiter • Pub-sub • Thread pool • HashMap internals (Java) • Connection pool • Amazon locker • Unix `find` (Specification + walker) • Retry scheduler with backoff and jitter • Idempotency-key store (TTL, in-flight vs completed) • Feature-flag SDK (evaluation, targeting, no network on the hot path)
+**Mid:** Elevator (SCAN/LOOK, hall vs cabin) • Movie booking (seat locks) • ATM / banking • Hotel booking (inventory) • Splitwise • In-memory rate limiter • Pub-sub • Thread pool • HashMap internals (Java) • Connection pool • Amazon locker • Unix `find` (Specification + walker) • Retry scheduler with backoff and jitter • Idempotency-key store (TTL, in-flight vs completed) • Feature-flag SDK (evaluation, targeting, no network on the hot path) • In-memory key-value store with TTL and transactions (a frequent machine-coding prompt: `begin` / `commit` / `rollback` over nested scopes) • Food-order lifecycle (State pattern over real transitions, cancellation rules) • Cron-style job scheduler (priority queue on next-fire time, a `Clock` seam)
 
 **Senior:** Chess • Distributed cache library (not cluster) • Notification dispatcher • Ride matching (in-process) • File system (Composite) • Copy-on-write document • Parking + EV/charging (OCP) • Payment processor LLD (idempotency) • Circuit-breaker library (state machine + clock seam) • Metrics registry (counter, gauge, histogram; label cardinality) • Undo/redo with Command + Memento on a real editor model
 
@@ -1144,7 +1427,7 @@ For each: class diagram, sequence for the hottest path, compiling code, tests th
 
 ## 8. Why experienced engineers fail (2026)
 
-1. No trade-offs stated. 2. Skip scoping. 3. Capacity math unused. 4. “Add servers” with no cost. 5. Over-engineering (active-active, ES, NewSQL) without need. 6. No ops (SLO, rollback, on-call). 7. Shallow data model. 8. Weak failure/degraded path. 9. Not driving (senior→staff gap). 10. Silent on AI when the product is clearly ML/LLM. 11. (Java) Spring trivia instead of architecture. 12. (Junior) Patterns as wallpaper. 13. (AI round) No evals, no token cost, no hallucination policy. 14. No change story — a design that cannot be migrated, backfilled or rolled back. 15. Blast radius never bounded — cannot say who the worst failure reaches. 16. An agent with no kill switch, step budget or authz boundary. 17. Dated vocabulary — ZooKeeper-era Kafka, “Redis” with no awareness of the fork, sidecar-only mesh.
+1. No trade-offs stated. 2. Skip scoping. 3. Capacity math unused. 4. “Add servers” with no cost. 5. Over-engineering (active-active, ES, NewSQL) without need. 6. No ops (SLO, rollback, on-call). 7. Shallow data model. 8. Weak failure/degraded path. 9. Not driving (senior→staff gap). 10. Silent on AI when the product is clearly ML/LLM. 11. (Java) Spring trivia instead of architecture. 12. (Junior) Patterns as wallpaper. 13. (AI round) No evals, no token cost, no hallucination policy. 14. No change story — a design that cannot be migrated, backfilled or rolled back. 15. Blast radius never bounded — cannot say who the worst failure reaches. 16. An agent with no kill switch, step budget or authz boundary. 17. Dated vocabulary — ZooKeeper-era Kafka, “Redis” with no awareness of the fork, sidecar-only mesh. 18. No real-world evidence — every trade-off defended from first principles, never from a system that actually made it (Phase R). 19. Uploading blobs through the app server, or locking a whole table for one seat — the recurring sub-problems (Phase 2) answered from scratch every time instead of recognised.
 
 ---
 
@@ -1185,6 +1468,8 @@ recorded. Score the newer material *inside* the existing dimensions instead:
 - Phase 2b (transport, timeout budgets) → **Trade-offs**, or **APIs** when it lands in a contract
 - Phase 3b (analytics, lakehouse) → **Data model**
 - Phase AI agents, evals and cost model → **AI**
+- Phase R (citing a real system's trade-off as evidence) → **Trade-offs**
+- Phase 2 contention, hot keys, large blobs → **Data model**; Phase 3 durable execution → **Reliability**
 
 If a future round genuinely needs its own dimension, add it to `mocks/README.md` in the same commit
 or the Mock avg column stops meaning anything.
@@ -1218,6 +1503,7 @@ worthless against hours you did not really work.
 | 9 Specializations | ☐ | | | |
 | 10 Evolution / change safety | ☐ | | | |
 | LLD | ☐ | | | |
+| R Reading — cards written this month | ☐ | | | |
 | Mocks | ☐ | | | |
 | Stage 5 packet *(architect only)* | ☐ | | | |
 
@@ -1228,26 +1514,34 @@ times over.
 
 ---
 
-## 12. Appendix — verified current-state (as of 26 Sep 2026)
+## 12. Appendix — verified current-state (as of 3 Oct 2026)
 
 - **Kafka:** KRaft-only from **4.0.0** (announced 18 Mar 2025); the current line is **4.2.0 (17 Feb 2026)** and **4.3.0 (22 May 2026, 25 KIPs)** — [4.2](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/), [4.3](https://kafka.apache.org/blog/2026/05/22/apache-kafka-4.3.0-release-announcement/). ZK clusters migrate via the 3.9.x bridge *before* 4.x ([upgrade notes](https://kafka.apache.org/40/getting-started/upgrade/)); a dedicated controller quorum is the usual production topology. “4.0 is KRaft-only” is correct; “4.0 is current” is not.
-- **Kafka consumer groups:** [KIP-848](https://cwiki.apache.org/confluence/x/HhD1D) moves rebalance coordination to the broker with server-side assignors; **GA in 4.0 but opt-in**, with the classic protocol deprecated in 4.3 and the default switch targeted at 5.0. Client-side assignors are not implemented. Correct 2026 phrasing: incremental, broker-coordinated — not “stop-the-world”.
+- **Kafka consumer groups:** [KIP-848](https://cwiki.apache.org/confluence/x/HhD1D) moves rebalance coordination to the broker with server-side assignors; **GA in 4.0 but opt-in**. In **4.3** a consumer started on the classic protocol logs a recommendation to switch, and the [4.3 upgrade notes](https://kafka.apache.org/43/getting-started/upgrade/) say the classic protocol “will be deprecated in a future release”; what 4.3 *does* deprecate is the `group.coordinator.rebalance.protocols` broker config, slated for removal in 5.0. No primary source found gives a release for switching the default — do not quote one. Client-side assignors are not implemented. Correct 2026 phrasing: incremental, broker-coordinated — not “stop-the-world”.
 - **Redis / Valkey — the fork is permanent and you should name it:** Redis Ltd. left BSD in **March 2024** (RSALv2 / SSPLv1); the Linux Foundation launched **Valkey** (BSD-3, forked from Redis 7.2.4) within the week, backed by AWS, Google Cloud, Oracle, Ericsson and Snap ([announcement](https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valkey-community)). Redis Ltd. added **AGPLv3** from Redis 8.0 in **May 2025** ([Redis](https://redis.io/blog/agplv3/), [InfoQ](https://www.infoq.com/news/2025/05/redis-agpl-license)). Both are alive; managed “Redis-compatible” services are increasingly Valkey, and AGPL is a blocker for some legal teams. Adoption figures in vendor surveys vary widely — treat any single percentage as marketing, not data.
-- **PostgreSQL:** **18** released 25 Sep 2025 (new async I/O subsystem); 18.x is the stable line through 2026, with 19 in beta. Still the correct default answer before distributed SQL. [Release](https://www.postgresql.org/about/news/postgresql-18-released-3142/).
-- **Apache Iceberg:** **v3** (deletion vectors, row lineage, `VARIANT`) reached GA across Snowflake, Databricks and S3 Tables during 2026, and open engines default to Iceberg for the analytical copy. [Spec](https://iceberg.apache.org/spec/); [Databricks](https://www.databricks.com/blog/next-era-open-lakehouse-apache-icebergtm-v3-public-preview-databricks).
-- **DDIA 2nd edition:** Kleppmann + Riccomini, **O'Reilly, March 2026** — confirmed published, not a pre-release ([author's post](https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html)). Chapter numbering differs from 1e; map by topic (Section 3.3).
-- **Java:** virtual threads final in 21 ([JEP 444](https://openjdk.org/jeps/444)); scoped values final in 25 ([JEP 506](https://openjdk.org/jeps/506)); **structured concurrency is still preview** — sixth preview in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)), not final as of Sep 2026. Claiming it as a production default is a dated-sounding error in the other direction.
-- **MCP:** donated by Anthropic to the **Agentic AI Foundation** under the Linux Foundation in **December 2025**; the **2026-07-28** specification removes the initialize handshake and session IDs, making the protocol stateless per call ([spec](https://modelcontextprotocol.io/specification/2026-07-28)). Interview framing: an MCP server is an untrusted dependency behind authz and quotas.
-- **Ingress vs Gateway API:** the Kubernetes **Ingress API is feature-frozen but not deprecated**; the community **ingress-nginx** controller reached end-of-life in **March 2026**, which is what people actually mean when they say “Ingress is dead”. New traffic-management work is in Gateway API (Envoy Gateway, Istio ambient, Cilium, Kong). Keep those two facts apart.
+- **PostgreSQL:** **18** released 25 Sep 2025 (new async I/O subsystem) and is the current stable line ([release](https://www.postgresql.org/about/news/postgresql-18-released-3142/)). **19** is in beta — Beta 4 shipped 24 Sep 2026 — and the [project roadmap](https://www.postgresql.org/developer/roadmap/) plans the release for **October 2026**; re-check before quoting it as released. Still the correct default answer before distributed SQL.
+- **Apache Iceberg:** **v3** (deletion vectors, row lineage, `VARIANT`) reached GA across Snowflake ([GA 7 May 2026](https://docs.snowflake.com/en/release-notes/2026/other/2026-05-07-iceberg-v3-ga)), Databricks and S3 Tables during 2026, and open engines default to Iceberg for the analytical copy. [Spec](https://iceberg.apache.org/spec/); [Databricks](https://www.databricks.com/blog/next-era-open-lakehouse-apache-icebergtm-v3-public-preview-databricks).
+- **DDIA 2nd edition:** Kleppmann + Riccomini, **O'Reilly, March 2026** — confirmed published, not a pre-release ([author's post](https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html)). Chapter numbering differs from 1e and MapReduce survives only as a teaching model; map by topic (Section 3.3).
+- **Java:** virtual threads final in 21 ([JEP 444](https://openjdk.org/jeps/444)); scoped values final in 25, the current LTS ([JEP 506](https://openjdk.org/jeps/506)); **JDK 27 reached GA on 15 Sep 2026** ([project page](https://openjdk.org/projects/jdk/27/)) and **structured concurrency is still preview** there — seventh preview ([JEP 533](https://openjdk.org/jeps/533)), after the sixth in JDK 26 ([JEP 525](https://openjdk.org/jeps/525)). Claiming it as a production default is a dated-sounding error in the other direction.
+- **MCP:** donated by Anthropic to the **Agentic AI Foundation** under the Linux Foundation, announced **9 December 2025** alongside goose and AGENTS.md ([announcement](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)). The **2026-07-28** specification removes the `initialize` handshake *and* protocol-level sessions (the `Mcp-Session-Id` header); every request carries its protocol version and client capabilities in `_meta`, and cross-call state uses explicit server-minted handles ([spec](https://modelcontextprotocol.io/specification/2026-07-28), [changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)). Interview framing: an MCP server is a stateless, untrusted dependency behind authz and quotas.
+- **Ingress vs Gateway API:** the Kubernetes **Ingress API is feature-frozen but not deprecated**; the community **ingress-nginx** controller reached end-of-life in **March 2026** ([Kubernetes announcement](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/)), which is what people actually mean when they say “Ingress is dead”. New traffic-management work is in Gateway API (Envoy Gateway, Istio ambient, Cilium, Kong). Keep those two facts apart.
 - **OpenTelemetry:** CNCF **graduated**, announced 21 May 2026 ([CNCF announcement](https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/)) — cite that date, because it is the one with a primary source. A 11 May 2026 TOC vote date circulates widely; it is not stated in CNCF's own announcement and is unverified here, so do not lean on it. Default interview vocabulary is OTLP, not a vendor SDK.
 - **Service mesh — do not mix surveys:**
   - CNCF **Annual Survey 2024**: mesh in production for a few/most apps **~50% (2023) → ~42% (2024)** among *organizations* ([Linux Foundation / CNCF annual survey PDF](https://www.linuxfoundation.org/hubfs/Research%20Reports/cncf_annual_survey24_031225a.pdf)).
   - CNCF **State of Cloud Native Development Q3 2025**: *developer* service-mesh use **18% (Q3 2023) → 8% (Q3 2025)** ([report PDF](https://www.cncf.io/wp-content/uploads/2025/11/cncf_report_stateofcloud_111025a.pdf)), with cost/complexity and meshes folding into platform layers as explanations.
+  - The **2025 Annual Survey** ([announced 20 Jan 2026](https://www.cncf.io/announcements/2026/01/20/kubernetes-established-as-the-de-facto-operating-system-for-ai-as-production-use-hits-82-in-2025-cncf-annual-cloud-native-survey/)) headlines Kubernetes in production at **82% of container users**. A mesh figure comparable to the 2024 one (same question, all organizations) was not found in the announcement, so the 2024 numbers above are not extended into a 2025 trend.
   - Interview takeaway is unchanged: **justify a mesh**; sidecar vs ambient (Istio) vs eBPF (Cilium) is secondary.
 - **Gateway API:** GA; Envoy Gateway / Istio typically high conformance. AI gateways exist for token metering — emerging, not a default box on every diagram.
 - **Distributed SQL:** No single winner; premature adoption is the usual mistake.
 - **LLM serving:** prefill/decode **disaggregation** moved from paper to production during 2025–2026 — [DistServe (OSDI 2024)](https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin) for the idea, [PyTorch + vLLM at Meta scale](https://pytorch.org/blog/disaggregated-inference-at-scale-with-pytorch-vllm/) for the engineering, and [vLLM's own docs](https://docs.vllm.ai/en/latest/features/disagg_prefill/), which still label it experimental and require prefill and decode workers to agree on KV layout, page size, dtype and attention variant. Propose it only with an SLO justification; the KV transfer becomes your new critical path.
-- **Interview logistics:** Some firms have tightened in-person / no-AI-tooling rules. The 45–60 min collaborative HLD is still the core format. Grading weights cost, ops, and AI-adjacent literacy more than in 2021.
+- **LLM serving in production, a public example:** Netflix's [in-house LLM serving](https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c) post (July 2026) describes Triton plus vLLM behind its existing JVM serving layer, with small models on CPU in-process and large ones on a GPU path. Use it as the reference for “what does serving look like at a non-AI-lab company”.
+- **Interview logistics:** The 45–60 min collaborative HLD is still the core format. Grading weights cost, ops, and AI-adjacent literacy more than in 2021. Dated specifics:
+  - **Meta** began rolling out an **AI-enabled coding** round in **October 2025**: ~60 minutes in a multi-file CoderPad with an AI assistant, replacing one of the two onsite coding rounds; the design round is unchanged ([Hello Interview's write-up](https://www.hellointerview.com/blog/meta-ai-enabled-coding) — a secondary source; Meta has not published the rubric).
+  - **Google** — Sundar Pichai said Google will introduce “at least one round of in-person interviews” (Lex Fridman podcast, June 2025), widely reported in August 2025 as a response to AI-assisted cheating in virtual loops ([Business Standard](https://www.business-standard.com/companies/news/google-ai-cheating-job-interviews-in-person-hiring-shift-sundar-pichai-125082600492_1.html), citing CNBC). How many rounds, and for which roles, is not published.
+  - **Practice catalogs:** the [Hello Interview practice list](https://www.hellointerview.com/practice/system-design), checked 3 Oct 2026, includes flash sale, online auction, YouTube top-K, price tracking, LeetCode, Strava, local delivery, Robinhood, online chess, ChatGPT and GitHub Actions — the source of Section 6's *current rotation* block. A catalog shows what candidates practise, not what a given company asks.
+  - **Unverified and not relied on:** claims that design rounds now routinely reach mid-level or new-grad loops, and that roughly half of 2026 design loops include an AI component. Both circulate in prep blogs without a methodology.
+- **Prep platforms:** Exponent has rebranded as **Aced** (`tryexponent.com` redirects to [aced.io](https://www.aced.io/), which labels itself “formerly Exponent”). Hello Interview's question feed moved from `/premium/questions` to [`/community/questions`](https://www.hellointerview.com/community/questions).
+- **AWS Builders' Library:** articles now live on `builder.aws.com`; the `aws.amazon.com/builders-library/` links used throughout this document redirect there and are kept as the stable form.
 
 ---
 
@@ -1269,9 +1563,11 @@ times over.
 
 **Papers:** Dynamo, Raft, Spanner, GFS, TAO, Bigtable, Chubby; recent: [Aurora DSQL — scalable multi-region OLTP (2026)](https://arxiv.org/abs/2607.13276); AI: [PagedAttention](https://arxiv.org/abs/2309.06180), [Orca / continuous batching](https://www.usenix.org/conference/osdi22/presentation/yu), [DistServe — prefill/decode disaggregation](https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin)
 
-**Mocks / question feeds:** [Hello Interview questions](https://www.hellointerview.com/premium/questions) • [interviewing.io](https://interviewing.io/) • [Exponent](https://www.tryexponent.com/) • Glassdoor/Blind *as color, not as answer keys*
+**Mocks / question feeds:** [Hello Interview questions](https://www.hellointerview.com/community/questions) • [interviewing.io](https://interviewing.io/) • [Aced, formerly Exponent](https://www.aced.io/) • Glassdoor/Blind *as color, not as answer keys*
 
 **Latest-question hygiene:** Re-check Hello Interview + company blogs **30 days before** your loop. This README’s problem list is the stable core; the long tail moves.
+
+**Continuous reading (Phase R):** the reading map in Phase R is the starting point, organised by phase. For discovery: [kilimchoi/engineering-blogs](https://github.com/kilimchoi/engineering-blogs) (directory) • [danluu/post-mortems](https://github.com/danluu/post-mortems) (incident write-ups) • [The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/) • [InfoQ architecture](https://www.infoq.com/architecture-design/) • [Dropbox Tech](https://dropbox.tech/) • [Slack Engineering](https://slack.engineering/) • [GitHub Engineering](https://github.blog/engineering/) • [Shopify Engineering](https://shopify.engineering/) • [Discord engineering](https://discord.com/category/engineering) • [Spotify Engineering](https://engineering.atspotify.com/) • India product firms: [Flipkart Tech](https://blog.flipkart.tech/), [Razorpay Engineering](https://engineering.razorpay.com/), [Zerodha Tech](https://zerodha.tech/). AI: [vLLM blog](https://vllm.ai/blog) • [LMSYS](https://lmsys.org/blog/) • [Eugene Yan](https://eugeneyan.com/) • [Simon Willison](https://simonwillison.net/) • [Lilian Weng](https://lilianweng.github.io/) • [Chip Huyen](https://huyenchip.com/blog/).
 
 ---
 
@@ -1287,7 +1583,7 @@ All of it is project-scoped and versioned with the curriculum, so it travels wit
 | Panel seats | `.claude/agents/panel/` | `panel-hld-architect`, `panel-hld-deepdive`, `panel-lld-design`, `panel-lld-machine-coding`, `panel-bar-raiser` — each usable alone |
 | Panel charter | `.claude/docs/panel-charter.md` | The shared contract: turn protocol, evidence-with-quotes rule, the 1–5 scale anchored to Section 10, sealed-scorecard schema |
 | Scorecards | `mocks/` | One dated file per round; YAML frontmatter is the machine-readable trend data |
-| Daily reading list | `interview-curator/` | A prompt-driven GitHub Action that curates ten current articles across HLD, LLD and AI |
+| Daily reading list | `interview-curator/` | A prompt-driven GitHub Action that curates ten current articles across HLD, LLD and AI — the feed for Phase R when the reading map is not new enough |
 
 **How this connects to the plan.** Phase 11 says you need another person for follow-ups, and that is
 still true — an agent will not replicate an interviewer reading your hesitation. What the agents do
@@ -1296,7 +1592,7 @@ a weakness slug that recurs across `mocks/` so you can see the third time you sk
 
 **Known gaps, stated rather than implied — the build list, in priority order:**
 
-1. **An AI panel seat.** `mock-interviewer` already carries an AI rubric (pipeline, retrieval-or-serving depth, evals, token and GPU cost, safety) that no panel seat owns, so a full loop cannot grade the dimension Phase AI spends ~50 hours on. `.claude/README.md` has the five steps for adding a seat
+1. **An AI panel seat.** `mock-interviewer` already carries an AI rubric (pipeline, retrieval-or-serving depth, evals, token and GPU cost, safety) that no panel seat owns, so a full loop cannot grade the dimension Phase AI spends ~52 hours on. `.claude/README.md` has the five steps for adding a seat
 2. **`.claude/skills/` is empty.** `add-question`, `link-audit` and `convention-check` are planned. Until they exist, run the checks in `CLAUDE.md` by hand — a link sweep catches real rot, and engineering blogs reorganise URLs constantly
 3. **`mocks/` holds no scorecards**, so every “Mock avg” cell in Section 11 is empty by fact rather than by oversight. The trend only starts existing after the third run
 
@@ -1320,6 +1616,8 @@ table, where it rots invisibly — phases link to Section 12, they do not duplic
 | A licence or governance change | The primary announcement from **both** sides | Section 12 |
 | A paper or engineering post that changes the default answer | Whether it replaces a link or merely adds one | Section 13 + the phase table |
 | Every quarter | Link sweep for rot; re-read Section 12 top to bottom | Sections 12, 13 |
+| Every quarter | Re-check the practice catalogs that feed Section 6's *current rotation* block; replace any Phase R starter post that has moved or been superseded | Section 6, Phase R, Section 12 |
+| A major public outage with a written postmortem | Whether it belongs in the Phase R reading map as a starter post | Phase R |
 | After every mock | Weak spots and score | Section 11 tracker, `mocks/` |
 
 **Rules that do not bend.**
